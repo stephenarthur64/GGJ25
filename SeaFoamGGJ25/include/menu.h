@@ -43,6 +43,10 @@ class menu {
 	sf::Vector2f m_quitButtonHiddenSize;
 	sf::Vector2f m_quitButtonHiddenPosition;
 
+	sf::RectangleShape m_backgroundOpaic;
+	sf::Vector2f m_backgroundOpaicSize;
+	sf::Vector2f m_backgroundOpaicPosition;
+
 public:
 	//Constructor
 	menu();

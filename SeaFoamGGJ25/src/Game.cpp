@@ -86,7 +86,7 @@ void Game::processEvents()
 			player.movementStop();
 			player.floatUp();
 		}
-		if (m_state == GameState::MENU) {
+		if (m_state == GameState::MENU && newEvent.type == sf::Event::MouseButtonReleased) {
 			m_menu.checkIfPressed(newEvent);
 		}
 	}

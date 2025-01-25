@@ -20,6 +20,11 @@ menu::menu() {
 	//Quit button Hidden
 	m_quitButtonHiddenSize = { 260,60 };
 	m_quitButtonHiddenPosition = { 972,615 };
+
+	//Background opaic
+	m_backgroundOpaicSize = { 800, 720 };
+	m_backgroundOpaicPosition = { 500, 0 };
+
 }
 
 void menu::setupFontAndText() {
@@ -80,6 +85,11 @@ void menu::initialise() {
 	m_quitButtonHidden.setFillColor(sf::Color::White);
 	m_quitButtonHidden.setPosition(m_quitButtonHiddenPosition);
 
+	//Background Opaic
+	m_backgroundOpaic.setSize(m_backgroundOpaicSize);
+	m_backgroundOpaic.setFillColor(sf::Color(0,0,0,100));
+	m_backgroundOpaic.setPosition(m_backgroundOpaicPosition);
+
 	if (!m_menuBackgroundTexture.loadFromFile("ASSETS\\IMAGES\\menu_background.png"))
 	{
 		std::cout << "Problem loading cube file" << std::endl;
@@ -89,6 +99,7 @@ void menu::initialise() {
 
 void menu::render(sf::RenderWindow& t_window) {
 	t_window.draw(m_menuBackgroundSprite);
+	t_window.draw(m_backgroundOpaic);
 	t_window.draw(m_introButton);
 	t_window.draw(m_levelsButton);
 	t_window.draw(m_quitButton);
