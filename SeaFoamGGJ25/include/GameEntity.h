@@ -8,6 +8,7 @@ public:
 	sf::RectangleShape getBody();
 	
 	void move(sf::Vector2f t_direction);
+	void updatePosition();
 
 
 protected:

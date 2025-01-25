@@ -11,6 +11,7 @@
 /// </summary>
 #include <SFML/Graphics.hpp>
 #include "GameEntity.h"
+#include "Player.h"
 
 enum class GameState {MENU, GAMEPLAY, CUTSCENE_START, CUTSCENE_END};
 
@@ -37,14 +38,15 @@ private:
 	void setupFontAndText();
 	void setupSprite();
 
-	const unsigned int SCREEN_WIDTH = 800;
-	const unsigned int SCREEN_HEIGHT = 600;
+	const unsigned int SCREEN_WIDTH = 1280;
+	const unsigned int SCREEN_HEIGHT = 720;
 	sf::RenderWindow m_window; // main SFML window
 	sf::Font m_ArialBlackfont; // font used by message
 	sf::Text m_menuText; // Text used to denote the Menu
 	sf::Text m_gameText; // Text used to denote the Game
 	GameState m_state = GameState::GAMEPLAY;
 	GameEntity entity;
+	Player player;
 	bool m_exitGame; // control exiting game
 
 };

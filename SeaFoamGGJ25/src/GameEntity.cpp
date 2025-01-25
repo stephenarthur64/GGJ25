@@ -1,7 +1,6 @@
 #include "GameEntity.h"
 
 GameEntity::GameEntity() : m_velocity(sf::Vector2f(0.0f, 0.0f)), m_position(sf::Vector2f(40.0f, 300.0f))
-							
 {
 }
 
@@ -19,7 +18,12 @@ sf::RectangleShape GameEntity::getBody()
 
 void GameEntity::move(sf::Vector2f t_direction)
 {
+	m_velocity.y = 0.0f;
 	m_velocity = t_direction;
+}
+
+void GameEntity::updatePosition()
+{
 	m_position += m_velocity;
 	m_body.setPosition(m_position);
 }

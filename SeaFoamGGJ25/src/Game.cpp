@@ -79,6 +79,11 @@ void Game::processEvents()
 		{
 			processKeys(newEvent);
 		}
+		if (newEvent.type == sf::Event::KeyReleased)
+		{
+			player.movementStop();
+			player.floatUp();
+		}
 	}
 }
 
@@ -106,15 +111,18 @@ void Game::processKeys(sf::Event t_event)
 
 void Game::gameKeys(sf::Event &t_event)
 {
-	if (sf::Keyboard::D == t_event.key.code)
+	if (sf::Keyboard::D == t_event.key.code || sf::Keyboard::Right == t_event.key.code)
 	{
-		entity.move(sf::Vector2f(3.0f, 0.0f));
+		player.move(sf::Vector2f(5.0f, 0.0f));
 	}
-	if (sf::Keyboard::A == t_event.key.code)
+	else if (sf::Keyboard::A == t_event.key.code || sf::Keyboard::Left == t_event.key.code)
 	{
-		entity.move(sf::Vector2f(-3.0f, 0.0f));
+		player.move(sf::Vector2f(-5.0f, 0.0f));
 	}
-	
+	else if (sf::Keyboard::S == t_event.key.code || sf::Keyboard::Down == t_event.key.code)
+	{
+		player.move(sf::Vector2f(0.0f, 5.0f));
+	}
 }
 
 /// <summary>
@@ -152,7 +160,7 @@ void Game::update(sf::Time t_deltaTime)
 
 void Game::entityUpdate(sf::Time t_deltaTime)
 {
-	
+	player.updatePosition();
 }
 
 void Game::menuUpdate()
@@ -172,7 +180,7 @@ void Game::render()
 	if (m_state == GameState::GAMEPLAY)
 	{
 		m_window.draw(m_gameText);
-		m_window.draw(entity.getBody());
+		m_window.draw(player.getBody());
 	}
 	m_window.display();
 }
@@ -208,5 +216,5 @@ void Game::setupFontAndText()
 /// </summary>
 void Game::setupSprite()
 {
-	entity.setupBody();
+	player.setupBody();
 }
