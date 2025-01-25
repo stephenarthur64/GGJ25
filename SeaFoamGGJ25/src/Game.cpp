@@ -221,6 +221,11 @@ void Game::checkCollisions()
 	{
 		player.stopped();
 	}
+
+	if (player.getBounds().intersects(borderTop.getBounds()) || player.getBounds().intersects(borderBottom.getBounds()))
+	{
+		player.damaged(1);
+	}
 }
 
 /// <summary>

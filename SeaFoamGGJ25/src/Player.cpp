@@ -21,8 +21,15 @@ void Player::movementStop()
 void Player::damaged(int t_damage)
 {
 	m_body.setFillColor(sf::Color::Red);
-	m_position.x -= m_velocity.x * 20;
-	m_position.y -= m_velocity.y * 20;
+	if (m_velocity == m_floatVelocity)
+	{
+		m_position.y -= m_velocity.y * 100;
+	}
+	else
+	{
+		m_position.x -= m_velocity.x * 20;
+		m_position.y -= m_velocity.y * 20;
+	}
 	m_body.setPosition(m_position);
 }
 
