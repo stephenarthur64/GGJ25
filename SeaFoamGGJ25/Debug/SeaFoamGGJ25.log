@@ -1,3 +1,7 @@
-﻿  menu.cpp
+﻿  Game.cpp
+C:\Users\gamejam\Desktop\GGJ25\SeaFoamGGJ25\src\Game.cpp(163,34): warning C4100: 't_deltaTime': unreferenced formal parameter
+  main.cpp
+  menu.cpp
 C:\Users\gamejam\Desktop\GGJ25\SeaFoamGGJ25\src\menu.cpp(36,28): warning C4100: 't_deltaTime': unreferenced formal parameter
+  Generating Code...
   SeaFoamGGJ25.vcxproj -> C:\Users\gamejam\Desktop\GGJ25\Debug\SeaFoamGGJ25.exe
