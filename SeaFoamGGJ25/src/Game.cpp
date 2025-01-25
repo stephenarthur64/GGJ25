@@ -14,8 +14,10 @@
 /// </summary>
 Game::Game() :
 	m_window{ sf::VideoMode{ SCREEN_WIDTH, SCREEN_HEIGHT, 32U }, "SFML Game" },
-	m_exitGame{false} //when true game will exit
+	m_exitGame{false}, //when true game will exit
+	m_gameView(sf::FloatRect({ 0.0f, 0.0f}, {(float)SCREEN_WIDTH, (float)SCREEN_HEIGHT}))
 {
+	m_window.setView(m_gameView);
 	setupFontAndText(); // load font 
 	setupSprite(); // load texture
 	m_menu.initialise();
@@ -142,6 +144,7 @@ void Game::update(sf::Time t_deltaTime)
 		break;
 	case GameState::GAMEPLAY:
 		entityUpdate(t_deltaTime);
+		updateCamera();
 		break;
 	case GameState::CUTSCENE_START:
 		break;
@@ -226,6 +229,12 @@ void Game::checkCollisions()
 	{
 		player.damaged(1);
 	}
+}
+
+void Game::updateCamera()
+{
+	player.scrollPosition(SCREEN_WIDTH / 2.0f,SCREEN_HEIGHT / 2.0f , m_gameView);
+	m_window.setView(m_gameView);
 }
 
 /// <summary>

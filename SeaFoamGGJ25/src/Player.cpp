@@ -43,3 +43,11 @@ void Player::stopped()
 	m_position -= m_velocity;
 	m_body.setPosition(m_position);
 }
+
+void Player::scrollPosition(int t_scrollingX, float t_viewY, sf::View& t_view)
+{
+	if (m_position.x > t_scrollingX)
+	{
+		t_view.setCenter(m_position.x, t_viewY);
+	}
+}

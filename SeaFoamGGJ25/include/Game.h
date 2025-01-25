@@ -41,6 +41,7 @@ private:
 	void menuUpdate();
 	void render();
 	void checkCollisions();
+	void updateCamera();
 	
 	void setupFontAndText();
 	void setupSprite();
@@ -48,6 +49,7 @@ private:
 	const unsigned int SCREEN_WIDTH = 1280;
 	const unsigned int SCREEN_HEIGHT = 720;
 	sf::RenderWindow m_window; // main SFML window
+	sf::View m_gameView; // View for the game
 	sf::Font m_ArialBlackfont; // font used by message	sf::Text m_menuText; // Text used to denote the Menu
 	sf::Text m_menuText;
 	sf::Text m_gameText; // Text used to denote the Game
