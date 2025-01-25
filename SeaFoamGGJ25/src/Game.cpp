@@ -188,6 +188,8 @@ void Game::render()
 		m_window.draw(tite.getBody());
 		m_window.draw(geiser.getBody());
 		m_window.draw(geiser.getBubble());
+		m_window.draw(borderTop.getBody());
+		m_window.draw(borderBottom.getBody());
 	}
 	m_window.display();
 }
@@ -257,4 +259,6 @@ void Game::setupSprite()
 	mite.setupBody(0, sf::Vector2f(600.0f, 420.0f), sf::Vector2f(50.0f, 300.0f));
 	tite.setupBody(1, sf::Vector2f(800.0f, 300.0f), sf::Vector2f(50.0f, 300.0f));
 	geiser.setupBody(sf::Vector2f(300.0f, 600.0f));
+	borderTop.setupBody(0);
+	borderBottom.setupBody(1);
 }

@@ -17,6 +17,7 @@
 #include "Spike.h"
 #include "Geiser.h"
 #include "Collision.h"
+#include "ScreenBorder.h"
 
 enum class GameState {MENU, GAMEPLAY, CUTSCENE_START, CUTSCENE_END};
 
@@ -57,6 +58,8 @@ private:
 	Spike mite;
 	Spike tite;
 	Geiser geiser;
+	ScreenBorder borderTop;
+	ScreenBorder borderBottom;
 	bool m_exitGame; // control exiting game
 
 	menu m_menu;

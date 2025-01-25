@@ -40,6 +40,7 @@
     <ClInclude Include="include\menu.h" />
     <ClInclude Include="include\Player.h" />
     <ClInclude Include="include\PufferFish.h" />
+    <ClInclude Include="include\ScreenBorder.h" />
     <ClInclude Include="include\Spike.h" />
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +52,7 @@
     <ClCompile Include="src\menu.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\PufferFish.cpp" />
+    <ClCompile Include="src\ScreenBorder.cpp" />
     <ClCompile Include="src\Spike.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
