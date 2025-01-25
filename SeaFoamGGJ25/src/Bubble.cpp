@@ -24,6 +24,11 @@ void Bubble::move()
 	m_body.setPosition(m_position);
 }
 
+void Bubble::disable()
+{
+	m_position.x = 100000000000.0f;
+}
+
 sf::CircleShape Bubble::getBody()
 {
 	return m_body;

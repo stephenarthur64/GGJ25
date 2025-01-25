@@ -8,6 +8,7 @@ public:
     void setupBody();
     void spawn(sf::Vector2f t_pos);
     void move();
+    void disable();
     sf::CircleShape getBody();
 
 private:

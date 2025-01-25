@@ -21,4 +21,18 @@ void Player::movementStop()
 void Player::damaged(int t_damage)
 {
 	m_body.setFillColor(sf::Color::Red);
+	m_position.x -= m_velocity.x * 20;
+	m_position.y -= m_velocity.y * 20;
+	m_body.setPosition(m_position);
+}
+
+void Player::healed(int t_heal)
+{
+	m_body.setFillColor(sf::Color::Blue);
+}
+
+void Player::stopped()
+{
+	m_position -= m_velocity;
+	m_body.setPosition(m_position);
 }

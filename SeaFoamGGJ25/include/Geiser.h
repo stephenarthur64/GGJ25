@@ -8,7 +8,9 @@ class Geiser :
 public:
     void setupBody(sf::Vector2f t_pos);
     sf::CircleShape getBubble();
+    sf::FloatRect getBubbleBounds();
     void moveBubble();
+    void disableBubble();
 private:
     Bubble bubble;
 };

@@ -17,7 +17,17 @@ sf::CircleShape Geiser::getBubble()
 	return bubble.getBody();
 }
 
+sf::FloatRect Geiser::getBubbleBounds()
+{
+	return bubble.getBody().getGlobalBounds();
+}
+
 void Geiser::moveBubble()
 {
 	bubble.move();
+}
+
+void Geiser::disableBubble()
+{
+	bubble.disable();
 }

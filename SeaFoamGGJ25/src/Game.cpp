@@ -199,7 +199,26 @@ void Game::checkCollisions()
 		player.damaged(1);
 	}
 
-	
+	if (player.getBounds().intersects(mite.getBounds()))
+	{
+		player.damaged(2);
+	}
+
+	if (player.getBounds().intersects(tite.getBounds()))
+	{
+		player.damaged(2);
+	}
+
+	if (player.getBounds().intersects(geiser.getBubbleBounds()))
+	{
+		player.healed(1);
+		geiser.disableBubble();
+	}
+
+	if (player.getBounds().intersects(geiser.getBounds()))
+	{
+		player.stopped();
+	}
 }
 
 /// <summary>
