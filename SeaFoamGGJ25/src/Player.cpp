@@ -25,7 +25,7 @@ void Player::damaged(int t_damage)
 		m_health -= t_damage;
 	}
 
-	if (m_health == 0)
+	if (m_health <= 0)
 	{
 		die();
 	}

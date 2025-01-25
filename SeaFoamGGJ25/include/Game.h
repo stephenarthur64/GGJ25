@@ -58,19 +58,19 @@ private:
 	sf::Text m_gameText; // Text used to denote the Game
 	GameState m_state = GameState::MENU;
 	Player player;
-	PufferFish puff;
-	Spike mite;
-	Spike tite;
-	Geiser geiser;
+	PufferFish puff[5];
+	Spike mite[5];
+	Spike tite[5];
+	Geiser geiser[5];
 	sf::Texture m_playerTexture;
 	sf::Texture m_puffTexture;
 	sf::Texture m_spikeTexture;
 	sf::Texture m_geiserTexture;
 	sf::Sprite m_playerSprite;
-	sf::Sprite m_puffSprite;
-	sf::Sprite m_miteSprite;
-	sf::Sprite m_titeSprite;
-	sf::Sprite m_geiserSprite;
+	sf::Sprite m_puffSprite[5];
+	sf::Sprite m_miteSprite[5];
+	sf::Sprite m_titeSprite[5];
+	sf::Sprite m_geiserSprite[5];
 	ScreenBorder borderTop;
 	ScreenBorder borderBottom;
 	bool m_exitGame; // control exiting game

@@ -167,8 +167,11 @@ void Game::update(sf::Time t_deltaTime)
 void Game::entityUpdate(sf::Time t_deltaTime)
 {
 	player.updatePosition();
-	puff.move();
-	geiser.moveBubble();
+	for (int i = 0; i < 5; i++)
+	{
+		puff[i].move();
+		geiser[i].moveBubble();
+	}
 	checkCollisions();
 }
 
@@ -191,11 +194,14 @@ void Game::render()
 	{
 		m_window.draw(m_gameText);
 		m_window.draw(player.getBody());
-		m_window.draw(puff.getBody());
-		m_window.draw(mite.getBody());
-		m_window.draw(tite.getBody());
-		m_window.draw(geiser.getBody());
-		m_window.draw(geiser.getBubble());
+		for (int i = 0; i < 5; i++)
+		{
+			m_window.draw(puff[i].getBody());
+			m_window.draw(mite[i].getBody());
+			m_window.draw(tite[i].getBody());
+			m_window.draw(geiser[i].getBody());
+			m_window.draw(geiser[i].getBubble());
+		}
 		m_window.draw(borderTop.getBody());
 		m_window.draw(borderBottom.getBody());
 		m_window.setView(m_guiView); // All GUI drawn after this point <-------------
@@ -206,30 +212,33 @@ void Game::render()
 
 void Game::checkCollisions()
 {
-	if (player.getBounds().intersects(puff.getBounds()))
+	for (int i = 0; i < 5; i++)
 	{
-		player.damaged(1);
-	}
+		if (player.getBounds().intersects(puff[i].getBounds()))
+		{
+			player.damaged(1);
+		}
 
-	if (player.getBounds().intersects(mite.getBounds()))
-	{
-		player.damaged(2);
-	}
+		if (player.getBounds().intersects(mite[i].getBounds()))
+		{
+			player.damaged(2);
+		}
 
-	if (player.getBounds().intersects(tite.getBounds()))
-	{
-		player.damaged(2);
-	}
+		if (player.getBounds().intersects(tite[i].getBounds()))
+		{
+			player.damaged(2);
+		}
 
-	if (player.getBounds().intersects(geiser.getBubbleBounds()))
-	{
-		player.healed(1);
-		geiser.disableBubble();
-	}
+		if (player.getBounds().intersects(geiser[i].getBubbleBounds()))
+		{
+			player.healed(1);
+			geiser[i].disableBubble();
+		}
 
-	if (player.getBounds().intersects(geiser.getBounds()))
-	{
-		player.stopped();
+		if (player.getBounds().intersects(geiser[i].getBounds()))
+		{
+			player.stopped();
+		}
 	}
 
 	if (player.getBounds().intersects(borderTop.getBounds()) || player.getBounds().intersects(borderBottom.getBounds()))
@@ -286,10 +295,14 @@ void Game::setupFontAndText()
 void Game::setupSprite()
 {
 	player.setupBody(sf::Color::Blue);
-	puff.setupBody(sf::Color::Red);
-	mite.setupBody(0, sf::Vector2f(600.0f, 420.0f), sf::Vector2f(50.0f, 300.0f));
-	tite.setupBody(1, sf::Vector2f(800.0f, 300.0f), sf::Vector2f(50.0f, 300.0f));
-	geiser.setupBody(sf::Vector2f(300.0f, 600.0f));
+	for (int i = 0; i < 5; i++)
+	{
+		puff[i].setupBody(sf::Color::Red);
+		mite[i].setupBody(0, sf::Vector2f(600.0f, 420.0f), sf::Vector2f(50.0f, 300.0f));
+		tite[i].setupBody(1, sf::Vector2f(800.0f, 300.0f), sf::Vector2f(50.0f, 300.0f));
+		geiser[i].setupBody(sf::Vector2f(300.0f, 600.0f));
+	}
+	
 	borderTop.setupBody(0);
 	borderBottom.setupBody(1);
 }
