@@ -93,6 +93,11 @@ void Game::processKeys(sf::Event t_event)
 	{
 		m_exitGame = true;
 	}
+
+	if (m_state == GameState::MENU && sf::Keyboard::Space == t_event.key.code)
+	{
+		m_state = GameState::GAMEPLAY;
+	}
 }
 
 /// <summary>
@@ -105,10 +110,20 @@ void Game::update(sf::Time t_deltaTime)
 	{
 		std::cout << "time warp" << std::endl; // expecting 60 fps of action
 	}
+
+	if (m_state == GameState::MENU)
+	{
+		menuUpdate();
+	}
+
 	if (m_exitGame)
 	{
 		m_window.close();
 	}
+}
+
+void Game::menuUpdate()
+{
 }
 
 /// <summary>
@@ -117,8 +132,14 @@ void Game::update(sf::Time t_deltaTime)
 void Game::render()
 {
 	m_window.clear(sf::Color::White);
-	m_window.draw(m_welcomeMessage);
-	m_window.draw(m_logoSprite);
+	if (m_state == GameState::MENU)
+	{
+		m_window.draw(m_menuText);
+	}
+	if (m_state == GameState::GAMEPLAY)
+	{
+		m_window.draw(m_gameText);
+	}
 	m_window.display();
 }
 
@@ -131,15 +152,21 @@ void Game::setupFontAndText()
 	{
 		std::cout << "problem loading arial black font" << std::endl;
 	}
-	m_welcomeMessage.setFont(m_ArialBlackfont);
-	m_welcomeMessage.setString("SFML Game");
-	m_welcomeMessage.setStyle(sf::Text::Underlined | sf::Text::Italic | sf::Text::Bold);
-	m_welcomeMessage.setPosition(40.0f, 40.0f);
-	m_welcomeMessage.setCharacterSize(80U);
-	m_welcomeMessage.setOutlineColor(sf::Color::Red);
-	m_welcomeMessage.setFillColor(sf::Color::Black);
-	m_welcomeMessage.setOutlineThickness(3.0f);
+	m_menuText.setFont(m_ArialBlackfont);
+	m_menuText.setString("Menu State");
+	m_menuText.setPosition(200.0f, 200.0f);
+	m_menuText.setCharacterSize(80U);
+	m_menuText.setFillColor(sf::Color::Red);
+	m_menuText.setOutlineColor(sf::Color::Black);
+	m_menuText.setOutlineThickness(3.0f);
 
+	m_gameText.setFont(m_ArialBlackfont);
+	m_gameText.setString("Game State");
+	m_gameText.setPosition(200.0f, 200.0f);
+	m_gameText.setCharacterSize(80U);
+	m_gameText.setFillColor(sf::Color::Red);
+	m_gameText.setOutlineColor(sf::Color::Black);
+	m_gameText.setOutlineThickness(3.0f);
 }
 
 /// <summary>
@@ -147,11 +174,4 @@ void Game::setupFontAndText()
 /// </summary>
 void Game::setupSprite()
 {
-	if (!m_logoTexture.loadFromFile("ASSETS\\IMAGES\\SFML-LOGO.png"))
-	{
-		// simple error message if previous call fails
-		std::cout << "problem loading logo" << std::endl;
-	}
-	m_logoSprite.setTexture(m_logoTexture);
-	m_logoSprite.setPosition(300.0f, 180.0f);
 }

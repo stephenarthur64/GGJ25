@@ -11,6 +11,8 @@
 /// </summary>
 #include <SFML/Graphics.hpp>
 
+enum class GameState {MENU, GAMEPLAY, CUTSCENE_START, CUTSCENE_END};
+
 class Game
 {
 public:
@@ -26,6 +28,7 @@ private:
 	void processEvents();
 	void processKeys(sf::Event t_event);
 	void update(sf::Time t_deltaTime);
+	void menuUpdate();
 	void render();
 	
 	void setupFontAndText();
@@ -33,9 +36,9 @@ private:
 
 	sf::RenderWindow m_window; // main SFML window
 	sf::Font m_ArialBlackfont; // font used by message
-	sf::Text m_welcomeMessage; // text used for message on screen
-	sf::Texture m_logoTexture; // texture used for sfml logo
-	sf::Sprite m_logoSprite; // sprite used for sfml logo
+	sf::Text m_menuText; // Text used to denote the Menu
+	sf::Text m_gameText; // Text used to denote the Game
+	GameState m_state = GameState::MENU;
 	bool m_exitGame; // control exiting game
 
 };
