@@ -86,6 +86,9 @@ void Game::processEvents()
 			player.movementStop();
 			player.floatUp();
 		}
+		if (m_state == GameState::MENU) {
+			m_menu.checkIfPressed(newEvent);
+		}
 	}
 }
 
