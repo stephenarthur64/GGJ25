@@ -19,7 +19,7 @@ void Bubble::spawn(sf::Vector2f t_pos)
 
 void Bubble::move()
 {
-	m_velocity.y += m_speed;
+	m_velocity.y = m_speed;
 	m_position += m_velocity;
 	m_body.setPosition(m_position);
 }
