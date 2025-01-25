@@ -12,6 +12,7 @@
 #include <SFML/Graphics.hpp>
 #include "GameEntity.h"
 #include "Player.h"
+#include "PufferFish.h"
 #include "menu.h"
 
 enum class GameState {MENU, GAMEPLAY, CUTSCENE_START, CUTSCENE_END};
@@ -48,6 +49,7 @@ private:
 	GameState m_state = GameState::MENU;
 	GameEntity entity;
 	Player player;
+	PufferFish puff;
 	bool m_exitGame; // control exiting game
 
 	menu m_menu;

@@ -163,6 +163,7 @@ void Game::update(sf::Time t_deltaTime)
 void Game::entityUpdate(sf::Time t_deltaTime)
 {
 	player.updatePosition();
+	puff.move();
 }
 
 void Game::menuUpdate()
@@ -183,6 +184,7 @@ void Game::render()
 	{
 		m_window.draw(m_gameText);
 		m_window.draw(player.getBody());
+		m_window.draw(puff.getBody());
 	}
 	m_window.display();
 }
@@ -218,5 +220,6 @@ void Game::setupFontAndText()
 /// </summary>
 void Game::setupSprite()
 {
-	player.setupBody();
+	player.setupBody(sf::Color::Blue);
+	puff.setupBody(sf::Color::Red);
 }

@@ -37,6 +37,7 @@
     <ClInclude Include="include\GameEntity.h" />
     <ClInclude Include="include\menu.h" />
     <ClInclude Include="include\Player.h" />
+    <ClInclude Include="include\PufferFish.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp" />
@@ -44,6 +45,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\menu.cpp" />
     <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\PufferFish.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

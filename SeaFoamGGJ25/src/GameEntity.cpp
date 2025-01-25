@@ -4,9 +4,9 @@ GameEntity::GameEntity() : m_velocity(sf::Vector2f(0.0f, 0.0f)), m_position(sf::
 {
 }
 
-void GameEntity::setupBody()
+void GameEntity::setupBody(sf::Color t_colour)
 {
-	m_body.setFillColor(sf::Color::Blue);
+	m_body.setFillColor(t_colour);
 	m_body.setSize(sf::Vector2f(60.0f, 60.0f));
 	m_body.setPosition(m_position);
 }
