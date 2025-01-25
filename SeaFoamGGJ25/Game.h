@@ -10,6 +10,7 @@
 /// Don't forget the endif at the bottom
 /// </summary>
 #include <SFML/Graphics.hpp>
+#include "menu.h"
 
 enum class GameState {MENU, GAMEPLAY, CUTSCENE_START, CUTSCENE_END};
 
@@ -41,6 +42,7 @@ private:
 	GameState m_state = GameState::MENU;
 	bool m_exitGame; // control exiting game
 
+	menu m_menu;
 };
 
 #endif // !GAME_HPP

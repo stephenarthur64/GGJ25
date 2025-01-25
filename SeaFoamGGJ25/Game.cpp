@@ -20,6 +20,8 @@ Game::Game() :
 {
 	setupFontAndText(); // load font 
 	setupSprite(); // load texture
+
+	m_menu.initialise();
 }
 
 /// <summary>
@@ -113,17 +115,13 @@ void Game::update(sf::Time t_deltaTime)
 
 	if (m_state == GameState::MENU)
 	{
-		menuUpdate();
+		m_menu.update(t_deltaTime);
 	}
 
 	if (m_exitGame)
 	{
 		m_window.close();
 	}
-}
-
-void Game::menuUpdate()
-{
 }
 
 /// <summary>
@@ -134,7 +132,7 @@ void Game::render()
 	m_window.clear(sf::Color::White);
 	if (m_state == GameState::MENU)
 	{
-		m_window.draw(m_menuText);
+		m_menu.render(m_window);
 	}
 	if (m_state == GameState::GAMEPLAY)
 	{
