@@ -12,6 +12,7 @@
 #include <SFML/Graphics.hpp>
 #include "GameEntity.h"
 #include "Player.h"
+#include "menu.h"
 
 enum class GameState {MENU, GAMEPLAY, CUTSCENE_START, CUTSCENE_END};
 
@@ -44,11 +45,12 @@ private:
 	sf::Font m_ArialBlackfont; // font used by message
 	sf::Text m_menuText; // Text used to denote the Menu
 	sf::Text m_gameText; // Text used to denote the Game
-	GameState m_state = GameState::GAMEPLAY;
+	GameState m_state = GameState::MENU;
 	GameEntity entity;
 	Player player;
 	bool m_exitGame; // control exiting game
 
+	menu m_menu;
 };
 
 #endif // !GAME_HPP
