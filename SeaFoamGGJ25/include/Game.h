@@ -14,6 +14,7 @@
 #include "Player.h"
 #include "PufferFish.h"
 #include "menu.h"
+#include "Spike.h"
 
 enum class GameState {MENU, GAMEPLAY, CUTSCENE_START, CUTSCENE_END};
 
@@ -43,13 +44,15 @@ private:
 	const unsigned int SCREEN_WIDTH = 1280;
 	const unsigned int SCREEN_HEIGHT = 720;
 	sf::RenderWindow m_window; // main SFML window
-	sf::Font m_ArialBlackfont; // font used by message
-	sf::Text m_menuText; // Text used to denote the Menu
+	sf::Font m_ArialBlackfont; // font used by message	sf::Text m_menuText; // Text used to denote the Menu
+	sf::Text m_menuText;
 	sf::Text m_gameText; // Text used to denote the Game
 	GameState m_state = GameState::GAMEPLAY;
 	GameEntity entity;
 	Player player;
 	PufferFish puff;
+	Spike mite;
+	Spike tite;
 	bool m_exitGame; // control exiting game
 
 	menu m_menu;

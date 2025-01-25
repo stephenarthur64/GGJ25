@@ -6,8 +6,6 @@
 #include "Game.h"
 #include <iostream>
 
-
-
 /// <summary>
 /// default constructor
 /// setup the window properties
@@ -20,7 +18,6 @@ Game::Game() :
 {
 	setupFontAndText(); // load font 
 	setupSprite(); // load texture
-
 	m_menu.initialise();
 }
 
@@ -185,6 +182,8 @@ void Game::render()
 		m_window.draw(m_gameText);
 		m_window.draw(player.getBody());
 		m_window.draw(puff.getBody());
+		m_window.draw(mite.getBody());
+		m_window.draw(tite.getBody());
 	}
 	m_window.display();
 }
@@ -222,4 +221,6 @@ void Game::setupSprite()
 {
 	player.setupBody(sf::Color::Blue);
 	puff.setupBody(sf::Color::Red);
+	mite.setupBody(0, sf::Vector2f(600.0f, 420.0f), sf::Vector2f(50.0f, 300.0f));
+	tite.setupBody(1, sf::Vector2f(800.0f, 300.0f), sf::Vector2f(50.0f, 300.0f));
 }
