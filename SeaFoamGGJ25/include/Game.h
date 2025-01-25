@@ -19,7 +19,7 @@
 #include "Collision.h"
 #include "ScreenBorder.h"
 
-enum class GameState {MENU, GAMEPLAY, CUTSCENE_START, CUTSCENE_END};
+enum class GameState { MENU, GAMEPLAY, CUTSCENE_START, CUTSCENE_END };
 
 class Game
 {
@@ -35,7 +35,7 @@ private:
 
 	void processEvents();
 	void processKeys(sf::Event t_event);
-	void gameKeys(sf::Event &t_event);
+	void gameKeys(sf::Event& t_event);
 	void update(sf::Time t_deltaTime);
 	void entityUpdate(sf::Time t_deltaTime);
 	void menuUpdate();
