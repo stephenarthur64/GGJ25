@@ -16,6 +16,11 @@ sf::RectangleShape GameEntity::getBody()
 	return m_body;
 }
 
+sf::FloatRect GameEntity::getBounds()
+{
+	return m_body.getGlobalBounds();
+}
+
 void GameEntity::move(sf::Vector2f t_direction)
 {
 	m_velocity.y = 0.0f;

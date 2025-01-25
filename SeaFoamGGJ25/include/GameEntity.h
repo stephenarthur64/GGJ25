@@ -6,7 +6,8 @@ public:
 	GameEntity();
 	void setupBody(sf::Color t_colour);
 	sf::RectangleShape getBody();
-	
+	sf::FloatRect getBounds();
+
 	void move(sf::Vector2f t_direction);
 	void updatePosition();
 

@@ -162,6 +162,7 @@ void Game::entityUpdate(sf::Time t_deltaTime)
 	player.updatePosition();
 	puff.move();
 	geiser.moveBubble();
+	checkCollisions();
 }
 
 void Game::menuUpdate()
@@ -189,6 +190,16 @@ void Game::render()
 		m_window.draw(geiser.getBubble());
 	}
 	m_window.display();
+}
+
+void Game::checkCollisions()
+{
+	if (player.getBounds().intersects(puff.getBounds()))
+	{
+		player.damaged(1);
+	}
+
+	
 }
 
 /// <summary>

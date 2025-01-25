@@ -16,6 +16,7 @@
 #include "menu.h"
 #include "Spike.h"
 #include "Geiser.h"
+#include "Collision.h"
 
 enum class GameState {MENU, GAMEPLAY, CUTSCENE_START, CUTSCENE_END};
 
@@ -38,6 +39,7 @@ private:
 	void entityUpdate(sf::Time t_deltaTime);
 	void menuUpdate();
 	void render();
+	void checkCollisions();
 	
 	void setupFontAndText();
 	void setupSprite();

@@ -17,3 +17,8 @@ void Player::movementStop()
 {
 	m_velocity.x = 0.0f;
 }
+
+void Player::damaged(int t_damage)
+{
+	m_body.setFillColor(sf::Color::Red);
+}
