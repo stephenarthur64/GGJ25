@@ -66,6 +66,11 @@ void menu::setupFontAndText() {
 	m_quitButtonText.setCharacterSize(28U);
 	m_quitButtonText.setFillColor(sf::Color::White);
 
+	m_backButtonText.setFont(m_ArialBlackfont);
+	m_backButtonText.setString("Back");
+	m_backButtonText.setPosition(1067.0f, 625.0f);
+	m_backButtonText.setCharacterSize(28U);
+	m_backButtonText.setFillColor(sf::Color::White);
 }
 
 void menu::initialise() {
@@ -134,6 +139,7 @@ void menu::render(sf::RenderWindow& t_window) {
 	else {
 		t_window.draw(m_menuBackgroundSprite);
 		t_window.draw(m_backButton);
+		t_window.draw(m_backButtonText);
 	}
 }
 
@@ -143,9 +149,9 @@ void menu::update(sf::Time t_deltaTime) {
 
 void menu::checkIfPressed(sf::Event t_newEvent)
 {
-	if (levelMenu == false){
 		m_mouseEnd.x = static_cast<float>(t_newEvent.mouseButton.x);
 		m_mouseEnd.y = static_cast<float>(t_newEvent.mouseButton.y);
+	if (levelMenu == false){
 		sf::FloatRect introButtonZone = m_introButtonHidden.getGlobalBounds();
 		sf::FloatRect levelsButtonZone = m_levelsButtonHidden.getGlobalBounds();
 		sf::FloatRect quitButtonZone = m_quitButtonHidden.getGlobalBounds();
@@ -161,6 +167,9 @@ void menu::checkIfPressed(sf::Event t_newEvent)
 		}
 	}
 	else {
-
+		sf::FloatRect backButtonZone = m_backButtonHidden.getGlobalBounds();
+		if (backButtonZone.contains(m_mouseEnd)) {
+			levelMenu = false;
+		}
 	}
 }
