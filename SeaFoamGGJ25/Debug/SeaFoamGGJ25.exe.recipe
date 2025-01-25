@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>C:\Users\gamejam\Desktop\GGJ25\SeaFoamGGJ25\Debug\SeaFoamGGJ25.exe</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>C:\Users\gamejam\Desktop\GGJ25\SeaFoamGGJ25\SeaFoamGGJ25\ASSETS\FONTS\ariblk.ttf</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\gamejam\Desktop\GGJ25\SeaFoamGGJ25\SeaFoamGGJ25\ASSETS\IMAGES\SFML-LOGO.png</FullPath>
+    </ContentFile>
+  </ContentFiles>
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>
