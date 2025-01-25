@@ -33,6 +33,7 @@
     </Font>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Bubble.h" />
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\GameEntity.h" />
     <ClInclude Include="include\Geiser.h" />
@@ -42,6 +43,7 @@
     <ClInclude Include="include\Spike.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Bubble.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\GameEntity.cpp" />
     <ClCompile Include="src\Geiser.cpp" />

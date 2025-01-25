@@ -161,6 +161,7 @@ void Game::entityUpdate(sf::Time t_deltaTime)
 {
 	player.updatePosition();
 	puff.move();
+	geiser.moveBubble();
 }
 
 void Game::menuUpdate()
@@ -185,6 +186,7 @@ void Game::render()
 		m_window.draw(mite.getBody());
 		m_window.draw(tite.getBody());
 		m_window.draw(geiser.getBody());
+		m_window.draw(geiser.getBubble());
 	}
 	m_window.display();
 }
