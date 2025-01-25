@@ -15,6 +15,7 @@
 #include "PufferFish.h"
 #include "menu.h"
 #include "Spike.h"
+#include "Geiser.h"
 
 enum class GameState {MENU, GAMEPLAY, CUTSCENE_START, CUTSCENE_END};
 
@@ -53,6 +54,7 @@ private:
 	PufferFish puff;
 	Spike mite;
 	Spike tite;
+	Geiser geiser;
 	bool m_exitGame; // control exiting game
 
 	menu m_menu;
