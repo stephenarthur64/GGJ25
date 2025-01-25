@@ -27,6 +27,14 @@ menu::menu() {
 	m_backgroundOpaicSize = { 800, 720 };
 	m_backgroundOpaicPosition = { 500, 0 };
 
+	//Level Screen
+	//Back button	
+	m_backButtonSize = { 260,5 };
+	m_backButtonPosition = { 972,665 };
+	//Back button Hidden
+	m_backButtonHiddenSize = { 260,60 };
+	m_backButtonHiddenPosition = { 972,615 };
+
 }
 
 void menu::setupFontAndText() {
@@ -92,6 +100,18 @@ void menu::initialise() {
 	m_backgroundOpaic.setFillColor(sf::Color(0,0,0,100));
 	m_backgroundOpaic.setPosition(m_backgroundOpaicPosition);
 
+
+	//Level Screen
+	//Back button	
+	m_backButton.setSize(m_backButtonSize);
+	m_backButton.setFillColor(sf::Color::White);
+	m_backButton.setPosition(m_backButtonPosition);
+	//Back button	
+	m_backButtonHidden.setSize(m_backButtonHiddenSize);
+	m_backButtonHidden.setFillColor(sf::Color::White);
+	m_backButtonHidden.setPosition(m_backButtonHiddenPosition);
+
+
 	if (!m_menuBackgroundTexture.loadFromFile("ASSETS\\IMAGES\\menu_background.png"))
 	{
 		std::cout << "Problem loading cube file" << std::endl;
@@ -110,6 +130,10 @@ void menu::render(sf::RenderWindow& t_window) {
 		t_window.draw(m_introButtonText);
 		t_window.draw(m_levelsButtonText);
 		t_window.draw(m_quitButtonText);
+	}
+	else {
+		t_window.draw(m_menuBackgroundSprite);
+		t_window.draw(m_backButton);
 	}
 }
 
@@ -130,7 +154,7 @@ void menu::checkIfPressed(sf::Event t_newEvent)
 			std::cout << "Intro Button" << std::endl;
 		}
 		if (levelsButtonZone.contains(m_mouseEnd)) {
-			std::cout << "Levels Button" << std::endl;
+			levelMenu = true;
 		}
 		if (quitButtonZone.contains(m_mouseEnd)) {
 			std::cout << "Quit Button" << std::endl;

@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 
 class menu {
+	//Main Menu
 	// Text used to denote the Menu
 	sf::Text m_menuText;
 	sf::Text m_introButtonText;
@@ -47,7 +48,19 @@ class menu {
 	sf::Vector2f m_backgroundOpaicSize;
 	sf::Vector2f m_backgroundOpaicPosition;
 
+	//Level Menu
 	bool levelMenu;
+
+	sf::Text m_backButtonText;
+
+	//Back button	
+	sf::RectangleShape m_backButton;
+	sf::Vector2f m_backButtonSize;
+	sf::Vector2f m_backButtonPosition;
+	//back button Hidden
+	sf::RectangleShape m_backButtonHidden;
+	sf::Vector2f m_backButtonHiddenSize;
+	sf::Vector2f m_backButtonHiddenPosition;
 
 public:
 	//Constructor
