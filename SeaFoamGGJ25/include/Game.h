@@ -14,7 +14,7 @@
 #include "Player.h"
 #include "menu.h"
 
-enum class GameState {MENU, GAMEPLAY, CUTSCENE_START, CUTSCENE_END};
+enum class GameState { MENU, GAMEPLAY, CUTSCENE_START, CUTSCENE_END };
 
 class Game
 {
@@ -30,12 +30,12 @@ private:
 
 	void processEvents();
 	void processKeys(sf::Event t_event);
-	void gameKeys(sf::Event &t_event);
+	void gameKeys(sf::Event& t_event);
 	void update(sf::Time t_deltaTime);
 	void entityUpdate(sf::Time t_deltaTime);
 	void menuUpdate();
 	void render();
-	
+
 	void setupFontAndText();
 	void setupSprite();
 
@@ -43,7 +43,6 @@ private:
 	const unsigned int SCREEN_HEIGHT = 720;
 	sf::RenderWindow m_window; // main SFML window
 	sf::Font m_ArialBlackfont; // font used by message
-	sf::Text m_menuText; // Text used to denote the Menu
 	sf::Text m_gameText; // Text used to denote the Game
 	GameState m_state = GameState::MENU;
 	GameEntity entity;

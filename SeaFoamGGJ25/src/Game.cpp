@@ -16,7 +16,7 @@
 /// </summary>
 Game::Game() :
 	m_window{ sf::VideoMode{ SCREEN_WIDTH, SCREEN_HEIGHT, 32U }, "SFML Game" },
-	m_exitGame{false} //when true game will exit
+	m_exitGame{ false } //when true game will exit
 {
 	setupFontAndText(); // load font 
 	setupSprite(); // load texture
@@ -41,7 +41,7 @@ Game::~Game()
 /// if updates run slow then don't render frames
 /// </summary>
 void Game::run()
-{	
+{
 	sf::Clock clock;
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
 	const float fps{ 60.0f };
@@ -73,7 +73,7 @@ void Game::processEvents()
 	sf::Event newEvent;
 	while (m_window.pollEvent(newEvent))
 	{
-		if ( sf::Event::Closed == newEvent.type) // window message
+		if (sf::Event::Closed == newEvent.type) // window message
 		{
 			m_exitGame = true;
 		}
@@ -111,7 +111,7 @@ void Game::processKeys(sf::Event t_event)
 	}
 }
 
-void Game::gameKeys(sf::Event &t_event)
+void Game::gameKeys(sf::Event& t_event)
 {
 	if (sf::Keyboard::D == t_event.key.code || sf::Keyboard::Right == t_event.key.code)
 	{
@@ -196,13 +196,6 @@ void Game::setupFontAndText()
 	{
 		std::cout << "problem loading arial black font" << std::endl;
 	}
-	m_menuText.setFont(m_ArialBlackfont);
-	m_menuText.setString("Menu State");
-	m_menuText.setPosition(200.0f, 200.0f);
-	m_menuText.setCharacterSize(80U);
-	m_menuText.setFillColor(sf::Color::Red);
-	m_menuText.setOutlineColor(sf::Color::Black);
-	m_menuText.setOutlineThickness(3.0f);
 
 	m_gameText.setFont(m_ArialBlackfont);
 	m_gameText.setString("Game State");

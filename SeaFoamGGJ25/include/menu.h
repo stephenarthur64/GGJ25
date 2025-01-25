@@ -2,6 +2,13 @@
 #include <SFML/Graphics.hpp>
 
 class menu {
+	// Text used to denote the Menu
+	sf::Text m_menuText;
+	sf::Text m_introButtonText;
+	sf::Text m_levelsButtonText;
+	sf::Text m_quitButtonText;
+	sf::Font m_ArialBlackfont; // font used by message
+
 	//Sprites and textures
 	sf::Sprite m_menuBackgroundSprite;
 	sf::Texture m_menuBackgroundTexture;
@@ -30,4 +37,5 @@ public:
 	void initialise();
 	void render(sf::RenderWindow& t_window);
 	void update(sf::Time t_deltaTime);
+	void setupFontAndText();
 };
