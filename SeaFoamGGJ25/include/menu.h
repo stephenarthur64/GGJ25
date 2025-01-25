@@ -47,6 +47,8 @@ class menu {
 	sf::Vector2f m_backgroundOpaicSize;
 	sf::Vector2f m_backgroundOpaicPosition;
 
+	bool levelMenu;
+
 public:
 	//Constructor
 	menu();

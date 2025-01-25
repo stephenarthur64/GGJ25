@@ -2,6 +2,8 @@
 #include "menu.h"
 
 menu::menu() {
+	levelMenu = false;
+
 	//Intro button	
 	m_introButtonSize = { 260,5 };
 	m_introButtonPosition = { 972,490 };
@@ -98,15 +100,17 @@ void menu::initialise() {
 }
 
 void menu::render(sf::RenderWindow& t_window) {
-	t_window.draw(m_menuBackgroundSprite);
-	t_window.draw(m_backgroundOpaic);
-	t_window.draw(m_introButton);
-	t_window.draw(m_levelsButton);
-	t_window.draw(m_quitButton);
-	t_window.draw(m_menuText);
-	t_window.draw(m_introButtonText);
-	t_window.draw(m_levelsButtonText);
-	t_window.draw(m_quitButtonText);
+	if (levelMenu == false) {
+		t_window.draw(m_menuBackgroundSprite);
+		t_window.draw(m_backgroundOpaic);
+		t_window.draw(m_introButton);
+		t_window.draw(m_levelsButton);
+		t_window.draw(m_quitButton);
+		t_window.draw(m_menuText);
+		t_window.draw(m_introButtonText);
+		t_window.draw(m_levelsButtonText);
+		t_window.draw(m_quitButtonText);
+	}
 }
 
 void menu::update(sf::Time t_deltaTime) {
@@ -115,19 +119,24 @@ void menu::update(sf::Time t_deltaTime) {
 
 void menu::checkIfPressed(sf::Event t_newEvent)
 {
-	m_mouseEnd.x = static_cast<float>(t_newEvent.mouseButton.x);
-	m_mouseEnd.y = static_cast<float>(t_newEvent.mouseButton.y);
-	sf::FloatRect introButtonZone = m_introButtonHidden.getGlobalBounds();
-	sf::FloatRect levelsButtonZone = m_levelsButtonHidden.getGlobalBounds();
-	sf::FloatRect quitButtonZone = m_quitButtonHidden.getGlobalBounds();
+	if (levelMenu == false){
+		m_mouseEnd.x = static_cast<float>(t_newEvent.mouseButton.x);
+		m_mouseEnd.y = static_cast<float>(t_newEvent.mouseButton.y);
+		sf::FloatRect introButtonZone = m_introButtonHidden.getGlobalBounds();
+		sf::FloatRect levelsButtonZone = m_levelsButtonHidden.getGlobalBounds();
+		sf::FloatRect quitButtonZone = m_quitButtonHidden.getGlobalBounds();
 
-	if (introButtonZone.contains(m_mouseEnd)) {
-		std::cout << "Intro Button" << std::endl;
+		if (introButtonZone.contains(m_mouseEnd)) {
+			std::cout << "Intro Button" << std::endl;
+		}
+		if (levelsButtonZone.contains(m_mouseEnd)) {
+			std::cout << "Levels Button" << std::endl;
+		}
+		if (quitButtonZone.contains(m_mouseEnd)) {
+			std::cout << "Quit Button" << std::endl;
+		}
 	}
-	if (levelsButtonZone.contains(m_mouseEnd)) {
-		std::cout << "Levels Button" << std::endl;
-	}
-	if (quitButtonZone.contains(m_mouseEnd)) {
-		std::cout << "Quit Button" << std::endl;
+	else {
+
 	}
 }
