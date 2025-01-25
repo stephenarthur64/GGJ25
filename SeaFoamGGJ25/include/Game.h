@@ -42,6 +42,8 @@ private:
 	void render();
 	void checkCollisions();
 	void updateCamera();
+	void updateText();
+	void resetGame();
 	
 	void setupFontAndText();
 	void setupSprite();
@@ -50,16 +52,25 @@ private:
 	const unsigned int SCREEN_HEIGHT = 720;
 	sf::RenderWindow m_window; // main SFML window
 	sf::View m_gameView; // View for the game
+	sf::View m_guiView; // View for gui
 	sf::Font m_ArialBlackfont; // font used by message	sf::Text m_menuText; // Text used to denote the Menu
-	sf::Text m_menuText;
+	sf::Text m_healthText;
 	sf::Text m_gameText; // Text used to denote the Game
-	GameState m_state = GameState::GAMEPLAY;
-	GameEntity entity;
+	GameState m_state = GameState::MENU;
 	Player player;
 	PufferFish puff;
 	Spike mite;
 	Spike tite;
 	Geiser geiser;
+	sf::Texture m_playerTexture;
+	sf::Texture m_puffTexture;
+	sf::Texture m_spikeTexture;
+	sf::Texture m_geiserTexture;
+	sf::Sprite m_playerSprite;
+	sf::Sprite m_puffSprite;
+	sf::Sprite m_miteSprite;
+	sf::Sprite m_titeSprite;
+	sf::Sprite m_geiserSprite;
 	ScreenBorder borderTop;
 	ScreenBorder borderBottom;
 	bool m_exitGame; // control exiting game

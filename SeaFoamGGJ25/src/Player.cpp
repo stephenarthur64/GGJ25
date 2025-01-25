@@ -1,8 +1,8 @@
 #include "Player.h"
 
-Player::Player() : m_floatVelocity(sf::Vector2f(0.0f, -1.0f)), m_health(5)
+Player::Player() : m_floatVelocity(sf::Vector2f(0.0f, -1.0f))
 {
-
+	m_health = MAX_HEALTH;
 }
 
 void Player::floatUp()
@@ -20,7 +20,16 @@ void Player::movementStop()
 
 void Player::damaged(int t_damage)
 {
-	m_body.setFillColor(sf::Color::Red);
+	if (m_health > 0)
+	{
+		m_health -= t_damage;
+	}
+
+	if (m_health == 0)
+	{
+		die();
+	}
+
 	if (m_velocity == m_floatVelocity)
 	{
 		m_position.y -= m_velocity.y * 100;
@@ -35,7 +44,10 @@ void Player::damaged(int t_damage)
 
 void Player::healed(int t_heal)
 {
-	m_body.setFillColor(sf::Color::Blue);
+	if (m_health < MAX_HEALTH)
+	{
+		m_health++;
+	}
 }
 
 void Player::stopped()
@@ -50,4 +62,24 @@ void Player::scrollPosition(int t_scrollingX, float t_viewY, sf::View& t_view)
 	{
 		t_view.setCenter(m_position.x, t_viewY);
 	}
+}
+
+void Player::die()
+{
+	m_position.x = -10000.0f;
+	m_body.setPosition(m_position);
+}
+
+bool Player::isDead()
+{
+	if (m_health == 0)
+	{
+		return true;
+	}
+	return false;
+}
+
+int Player::getHealth()
+{
+	return m_health;
 }

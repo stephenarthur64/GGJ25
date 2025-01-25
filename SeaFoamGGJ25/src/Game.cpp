@@ -15,9 +15,9 @@
 Game::Game() :
 	m_window{ sf::VideoMode{ SCREEN_WIDTH, SCREEN_HEIGHT, 32U }, "SFML Game" },
 	m_exitGame{false}, //when true game will exit
-	m_gameView(sf::FloatRect({ 0.0f, 0.0f}, {(float)SCREEN_WIDTH, (float)SCREEN_HEIGHT}))
+	m_gameView(sf::FloatRect({ 0.0f, 0.0f}, {(float)SCREEN_WIDTH, (float)SCREEN_HEIGHT})),
+	m_guiView(sf::FloatRect({ 0.0f, 0.0f }, { (float)SCREEN_WIDTH, (float)SCREEN_HEIGHT }))
 {
-	m_window.setView(m_gameView);
 	setupFontAndText(); // load font 
 	setupSprite(); // load texture
 	m_menu.initialise();
@@ -148,6 +148,7 @@ void Game::update(sf::Time t_deltaTime)
 	case GameState::GAMEPLAY:
 		entityUpdate(t_deltaTime);
 		updateCamera();
+		updateText();
 		break;
 	case GameState::CUTSCENE_START:
 		break;
@@ -180,6 +181,7 @@ void Game::menuUpdate()
 /// </summary>
 void Game::render()
 {
+	m_window.setView(m_gameView);
 	m_window.clear(sf::Color::White);
 	if (m_state == GameState::MENU)
 	{
@@ -196,6 +198,8 @@ void Game::render()
 		m_window.draw(geiser.getBubble());
 		m_window.draw(borderTop.getBody());
 		m_window.draw(borderBottom.getBody());
+		m_window.setView(m_guiView); // All GUI drawn after this point <-------------
+		m_window.draw(m_healthText);
 	}
 	m_window.display();
 }
@@ -236,8 +240,17 @@ void Game::checkCollisions()
 
 void Game::updateCamera()
 {
-	player.scrollPosition(SCREEN_WIDTH / 2.0f,SCREEN_HEIGHT / 2.0f , m_gameView);
+	player.scrollPosition(SCREEN_WIDTH / 2.0f, SCREEN_HEIGHT / 2.0f, m_gameView);
 	m_window.setView(m_gameView);
+}
+
+void Game::updateText()
+{
+	m_healthText.setString("Health: " + std::to_string(player.getHealth()));
+}
+
+void Game::resetGame()
+{
 }
 
 /// <summary>
@@ -257,6 +270,14 @@ void Game::setupFontAndText()
 	m_gameText.setFillColor(sf::Color::Red);
 	m_gameText.setOutlineColor(sf::Color::Black);
 	m_gameText.setOutlineThickness(3.0f);
+
+	m_healthText.setFont(m_ArialBlackfont);
+	m_healthText.setString("Health: " + std::to_string(player.getHealth()));
+	m_healthText.setPosition(0.0f, 660.0f);
+	m_healthText.setCharacterSize(40U);
+	m_healthText.setFillColor(sf::Color::Red);
+	m_healthText.setOutlineColor(sf::Color::Black);
+	m_healthText.setOutlineThickness(3.0f);
 }
 
 /// <summary>
