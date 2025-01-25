@@ -87,7 +87,7 @@ void Game::processEvents()
 			player.floatUp();
 		}
 		if (m_state == GameState::MENU && newEvent.type == sf::Event::MouseButtonReleased) {
-			m_menu.checkIfPressed(newEvent);
+			m_menu.checkIfPressed(newEvent, m_window);
 		}
 	}
 }

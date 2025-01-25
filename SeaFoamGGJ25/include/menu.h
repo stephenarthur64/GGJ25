@@ -69,5 +69,5 @@ public:
 	void render(sf::RenderWindow& t_window);
 	void update(sf::Time t_deltaTime);
 	void setupFontAndText();
-	void checkIfPressed(sf::Event t_newEvent);
+	void checkIfPressed(sf::Event t_newEvent, sf::RenderWindow &window);
 };

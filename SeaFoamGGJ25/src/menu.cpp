@@ -147,7 +147,7 @@ void menu::update(sf::Time t_deltaTime) {
 
 }
 
-void menu::checkIfPressed(sf::Event t_newEvent)
+void menu::checkIfPressed(sf::Event t_newEvent, sf::RenderWindow &window)
 {
 		m_mouseEnd.x = static_cast<float>(t_newEvent.mouseButton.x);
 		m_mouseEnd.y = static_cast<float>(t_newEvent.mouseButton.y);
@@ -163,7 +163,7 @@ void menu::checkIfPressed(sf::Event t_newEvent)
 			levelMenu = true;
 		}
 		if (quitButtonZone.contains(m_mouseEnd)) {
-			std::cout << "Quit Button" << std::endl;
+			window.close();
 		}
 	}
 	else {
