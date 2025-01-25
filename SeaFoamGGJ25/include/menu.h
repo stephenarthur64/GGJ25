@@ -11,10 +11,18 @@ class menu {
 
 
 	//Buttons
+	//Intro button	
+	sf::RectangleShape m_introButton;
+	sf::Vector2f m_introButtonSize;
+	sf::Vector2f m_introButtonPosition;
 	//Play button	
 	sf::RectangleShape m_playButton;
 	sf::Vector2f m_playButtonSize;
 	sf::Vector2f m_playButtonPosition;
+	//Quit button	
+	sf::RectangleShape m_quitButton;
+	sf::Vector2f m_quitButtonSize;
+	sf::Vector2f m_quitButtonPosition;
 
 public:
 	//Constructor

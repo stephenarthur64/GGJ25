@@ -40,7 +40,7 @@
     <ClInclude Include="include\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="menu.h">
+    <ClInclude Include="include\menu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
