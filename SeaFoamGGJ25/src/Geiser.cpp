@@ -12,6 +12,17 @@ void Geiser::setupBody(sf::Vector2f t_pos)
 	bubble.spawn(m_position);
 }
 
+void Geiser::setupSprite(sf::Texture& t_gesier, sf::Texture& t_bubble)
+{
+	m_sprite.setTexture(t_gesier);
+	bubble.setupSprite(t_bubble);
+}
+
+sf::Sprite Geiser::getBubbleSprite()
+{
+	return bubble.getSprite();
+}
+
 sf::CircleShape Geiser::getBubble()
 {
 	return bubble.getBody();
@@ -30,4 +41,9 @@ void Geiser::moveBubble()
 void Geiser::disableBubble()
 {
 	bubble.disable();
+}
+
+void Geiser::enableBubble()
+{
+	bubble.spawn(m_position);
 }

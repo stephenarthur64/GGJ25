@@ -6,6 +6,7 @@ class Bubble :
 public:
     Bubble();
     void setupBody();
+    void setupSprite(sf::Texture& t_texture);
     void spawn(sf::Vector2f t_pos);
     void move();
     void disable();

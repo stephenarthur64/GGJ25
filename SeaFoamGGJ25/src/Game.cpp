@@ -173,6 +173,13 @@ void Game::entityUpdate(sf::Time t_deltaTime)
 		geiser[i].moveBubble();
 	}
 	checkCollisions();
+	if (m_geiserFrames >= 300)
+	{
+		m_geiserFrames = 0;
+		geiser->enableBubble();
+	}
+
+	m_geiserFrames++;
 }
 
 void Game::menuUpdate()
@@ -205,7 +212,9 @@ void Game::render()
 			m_window.draw(tite[i].getBody());
 			m_window.draw(tite[i].getSprite());
 			m_window.draw(geiser[i].getBody());
-			m_window.draw(geiser[i].getBubble());
+			m_window.draw(geiser[i].getSprite());
+			//m_window.draw(geiser[i].getBubble());
+			m_window.draw(geiser[i].getBubbleSprite());
 		}
 		m_window.draw(borderTop.getBody());
 		m_window.draw(borderBottom.getBody());
@@ -336,6 +345,14 @@ void Game::setupSprite()
 		{
 			mite[i].setupSprite(m_spikeTexture);
 			tite[i].setupSprite(m_spikeTexture);
+		}
+	}
+
+	if (m_bubbleTexture.loadFromFile("ASSETS/IMAGES/Environment/Bubble.png") && m_geiserTexture.loadFromFile("ASSETS/IMAGES/Environment/Geezer.png"))
+	{
+		for (int i = 0; i < 5; i++)
+		{
+			geiser[i].setupSprite(m_geiserTexture, m_bubbleTexture);
 		}
 	}
 

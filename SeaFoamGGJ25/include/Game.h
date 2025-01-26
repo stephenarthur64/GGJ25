@@ -50,6 +50,8 @@ private:
 
 	const unsigned int SCREEN_WIDTH = 1280;
 	const unsigned int SCREEN_HEIGHT = 720;
+	int m_geiserFrames = 0;
+
 	sf::RenderWindow m_window; // main SFML window
 	sf::View m_gameView; // View for the game
 	sf::View m_guiView; // View for gui
@@ -68,10 +70,7 @@ private:
 	sf::Texture m_puffTexture;
 	sf::Texture m_spikeTexture;
 	sf::Texture m_geiserTexture;
-	sf::Sprite m_puffSprite[5];
-	sf::Sprite m_miteSprite[5];
-	sf::Sprite m_titeSprite[5];
-	sf::Sprite m_geiserSprite[5];
+	sf::Texture m_bubbleTexture;
 	ScreenBorder borderTop;
 	ScreenBorder borderBottom;
 	bool m_exitGame; // control exiting game

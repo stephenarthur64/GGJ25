@@ -7,10 +7,13 @@ class Geiser :
 {
 public:
     void setupBody(sf::Vector2f t_pos);
+    void setupSprite(sf::Texture& t_gesier, sf::Texture& t_bubble);
+    sf::Sprite getBubbleSprite();
     sf::CircleShape getBubble();
     sf::FloatRect getBubbleBounds();
     void moveBubble();
     void disableBubble();
+    void enableBubble();
 private:
     Bubble bubble;
 };
