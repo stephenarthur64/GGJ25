@@ -3,25 +3,26 @@
 
 menu::menu() {
 	levelMenu = false;
+	introActive = false;
 
 	//Intro button	
 	m_introButtonSize = { 260,5 };
 	m_introButtonPosition = { 525,505 };
 	//Intro button Hidden
 	m_introButtonHiddenSize = { 260,60 };
-	m_introButtonHiddenPosition = { 525,445 };
+	m_introButtonHiddenPosition = { 525,435 };
 	//Levels button	
 	m_levelsButtonSize = { 260,5 };
 	m_levelsButtonPosition = { 525,595 };
 	//Levels button	Hidden
 	m_levelsButtonHiddenSize = { 260,60 };
-	m_levelsButtonHiddenPosition = { 525,555 };
+	m_levelsButtonHiddenPosition = { 525,545 };
 	//Quit button	
 	m_quitButtonSize = { 260,5 };
 	m_quitButtonPosition = { 525,685 };
 	//Quit button Hidden
 	m_quitButtonHiddenSize = { 260,60 };
-	m_quitButtonHiddenPosition = { 525,645 };
+	m_quitButtonHiddenPosition = { 525,635 };
 
 	//Background opaic
 	m_backgroundOpaicSize = { 800, 720 };
@@ -182,9 +183,15 @@ void menu::initialise() {
 		std::cout << "Problem loading main menu background file" << std::endl;
 	}
 	m_menuBackgroundSprite.setTexture(m_menuBackgroundTexture);
+	if (!m_introBackgroundTexture.loadFromFile("ASSETS\\IMAGES\\Menu\\intro_background.png"))
+	{
+		std::cout << "Problem loading main menu background file" << std::endl;
+	}
+	m_introBackgroundSprite.setTexture(m_introBackgroundTexture);
+	m_introBackgroundSprite.setPosition(0, 0);
 	if (!m_levelMapTexture.loadFromFile("ASSETS\\IMAGES\\Menu\\levelMap.png"))
 	{
-		std::cout << "Problem loading level map background file" << std::endl;
+		std::cout << "Problem loading intro background background file" << std::endl;
 	}
 	m_levelMapSprite.setTexture(m_levelMapTexture);
 	m_levelMapSprite.setPosition(49, 0);
@@ -200,7 +207,10 @@ void menu::initialise() {
 }
 
 void menu::render(sf::RenderWindow& t_window) {
-	if (levelMenu == false) {
+	if (introActive) {
+		t_window.draw(m_introBackgroundSprite);
+	}
+	else if (levelMenu == false) {
 		t_window.draw(m_menuBackgroundSprite);
 		//t_window.draw(m_backgroundOpaic);
 		t_window.draw(m_gameLogoSprite);
@@ -235,13 +245,19 @@ void menu::checkIfPressed(sf::Event t_newEvent, sf::RenderWindow &window)
 {
 		m_mouseEnd.x = static_cast<float>(t_newEvent.mouseButton.x);
 		m_mouseEnd.y = static_cast<float>(t_newEvent.mouseButton.y);
-	if (levelMenu == false){
+	if (introActive) {
+		sf::FloatRect introBackgroundZone = m_introBackgroundSprite.getGlobalBounds();
+		if (introBackgroundZone.contains(m_mouseEnd)) {
+			introActive = false;
+		}
+	}
+	else if (levelMenu == false){
 		sf::FloatRect introButtonZone = m_introButtonHidden.getGlobalBounds();
 		sf::FloatRect levelsButtonZone = m_levelsButtonHidden.getGlobalBounds();
 		sf::FloatRect quitButtonZone = m_quitButtonHidden.getGlobalBounds();
 
 		if (introButtonZone.contains(m_mouseEnd)) {
-			std::cout << "Intro Button" << std::endl;
+			introActive = true;
 		}
 		if (levelsButtonZone.contains(m_mouseEnd)) {
 			levelMenu = true;

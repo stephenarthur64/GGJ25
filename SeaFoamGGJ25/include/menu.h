@@ -14,6 +14,10 @@ class menu {
 	sf::Sprite m_menuBackgroundSprite;
 	sf::Texture m_menuBackgroundTexture;
 
+	//intro bg
+	sf::Sprite m_introBackgroundSprite;
+	sf::Texture m_introBackgroundTexture;
+
 	sf::Sprite m_gameLogoSprite;
 	sf::Texture m_gameLogoTexture;
 
@@ -57,6 +61,8 @@ class menu {
 
 	//Level Menu
 	bool levelMenu;
+
+	bool introActive;
 
 	sf::Text m_backButtonText;
 
