@@ -24,6 +24,9 @@ Game::Game() :
 	setupSprite(); // load texture
 	m_menu.initialise();
 	levelOne();
+
+	m_audio.loadFiles();
+	m_audio.playMenuTheme();
 }
 
 /// <summary>

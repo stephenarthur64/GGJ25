@@ -19,6 +19,7 @@
 #include "Collision.h"
 #include "ScreenBorder.h"
 #include "global.h"
+#include "Music.h"
 
 
 
@@ -80,6 +81,9 @@ private:
 	bool m_exitGame; // control exiting game
 
 	menu m_menu;
+
+	audio m_audio;
+
 };
 
 #endif // !GAME_HPP

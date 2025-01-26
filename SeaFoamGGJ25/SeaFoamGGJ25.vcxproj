@@ -39,6 +39,7 @@
     <ClInclude Include="include\Geiser.h" />
     <ClInclude Include="include\global.h" />
     <ClInclude Include="include\menu.h" />
+    <ClInclude Include="include\Music.h" />
     <ClInclude Include="include\Player.h" />
     <ClInclude Include="include\PufferFish.h" />
     <ClInclude Include="include\ScreenBorder.h" />
@@ -51,6 +52,7 @@
     <ClCompile Include="src\Geiser.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\menu.cpp" />
+    <ClCompile Include="src\Music.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\PufferFish.cpp" />
     <ClCompile Include="src\ScreenBorder.cpp" />
