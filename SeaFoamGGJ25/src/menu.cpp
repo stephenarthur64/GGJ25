@@ -328,6 +328,7 @@ void menu::checkIfPressed(sf::Event t_newEvent, sf::RenderWindow &window)
 		}
 		if (levelOneButtonZone.contains(m_mouseEnd)) {
 			std::cout << "Level One start" << std::endl;
+			m_state = GameState::GAMEPLAY;
 		}
 		if (levelTwoButtonZone.contains(m_mouseEnd)) {
 			std::cout << "Level Two start" << std::endl;

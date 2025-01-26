@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "global.h"
 
 class menu {
 	//Main Menu
@@ -106,7 +107,6 @@ class menu {
 	//Circle for point
 	sf::CircleShape m_levelTwoCircle;
 	sf::Vector2f m_levelTwoCirclePosition;
-
 
 public:
 	//Constructor

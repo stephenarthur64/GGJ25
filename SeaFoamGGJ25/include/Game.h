@@ -18,8 +18,9 @@
 #include "Geiser.h"
 #include "Collision.h"
 #include "ScreenBorder.h"
+#include "global.h"
 
-enum class GameState { MENU, GAMEPLAY, CUTSCENE_START, CUTSCENE_END };
+
 
 class Game
 {
@@ -61,7 +62,6 @@ private:
 	sf::Font m_ArialBlackfont; // font used by message	sf::Text m_menuText; // Text used to denote the Menu
 	sf::Text m_healthText;
 	sf::Text m_gameText; // Text used to denote the Game
-	GameState m_state = GameState::MENU;
 	Player player;
 	PufferFish puff[5];
 	Spike mite[5];

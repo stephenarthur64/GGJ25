@@ -1,9 +1,1 @@
-﻿  Game.cpp
-C:\Users\gamejam\Desktop\GGJ25\SeaFoamGGJ25\SeaFoamGGJ25\src\Game.cpp(170,34): warning C4100: 't_deltaTime': unreferenced formal parameter
-C:\Users\gamejam\Desktop\GGJ25\SeaFoamGGJ25\SeaFoamGGJ25\src\Game.cpp(283,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\gamejam\Desktop\GGJ25\SeaFoamGGJ25\SeaFoamGGJ25\src\Game.cpp(395,72): warning C4390: ';': empty controlled statement found; is this the intent?
-  main.cpp
-  menu.cpp
-C:\Users\gamejam\Desktop\GGJ25\SeaFoamGGJ25\SeaFoamGGJ25\src\menu.cpp(250,28): warning C4100: 't_deltaTime': unreferenced formal parameter
-  Generating Code...
-  SeaFoamGGJ25.vcxproj -> C:\Users\gamejam\Desktop\GGJ25\SeaFoamGGJ25\Debug\SeaFoamGGJ25.exe
+﻿  SeaFoamGGJ25.vcxproj -> C:\Users\gamejam\Desktop\GGJ25\SeaFoamGGJ25\Debug\SeaFoamGGJ25.exe
