@@ -34,7 +34,27 @@ menu::menu() {
 	//Back button Hidden
 	m_backButtonHiddenSize = { 260,60 };
 	m_backButtonHiddenPosition = { 972,615 };
+	
 
+	//Level buttons
+	//Clickable area
+	m_levelOneButtonSize = { 459, 67 };
+	m_levelOneButtonPosition = { 780, 460 };
+	//Underline
+	m_levelOneUnderlineSize = { 749, 5 };
+	m_levelOneUnderlinePosition = { 490, 527 };
+	//Circle for point
+	m_levelOneCirclePosition = { 450, 505 };
+
+	//Level Two button
+	//Clickable area
+	m_levelTwoButtonSize = { 459, 67 };
+	m_levelTwoButtonPosition = { 780, 207 };
+	//Underline that points to map
+	m_levelTwoUnderlineSize = { 749, 5 };
+	m_levelTwoUnderlinePosition = { 490, 274 };
+	//Circle for point
+	m_levelTwoCirclePosition = { 450, 251 };
 }
 
 void menu::setupFontAndText() {
@@ -71,6 +91,19 @@ void menu::setupFontAndText() {
 	m_backButtonText.setPosition(1067.0f, 625.0f);
 	m_backButtonText.setCharacterSize(28U);
 	m_backButtonText.setFillColor(sf::Color::White);
+
+	m_levelOneButtonText.setFont(m_ArialBlackfont);
+	m_levelOneButtonText.setString("Level One");
+	m_levelOneButtonText.setPosition(900.0f, 465.0f);
+	m_levelOneButtonText.setCharacterSize(48U);
+	m_levelOneButtonText.setFillColor(sf::Color::White);
+
+	m_levelTwoButtonText.setFont(m_ArialBlackfont);
+	m_levelTwoButtonText.setString("Level Two");
+	m_levelTwoButtonText.setPosition(900.0f, 210.0f);
+	m_levelTwoButtonText.setCharacterSize(48U);
+	m_levelTwoButtonText.setFillColor(sf::Color::White);
+
 }
 
 void menu::initialise() {
@@ -116,12 +149,46 @@ void menu::initialise() {
 	m_backButtonHidden.setFillColor(sf::Color::White);
 	m_backButtonHidden.setPosition(m_backButtonHiddenPosition);
 
+	//Level buttons
+	m_levelOneButton.setSize(m_levelOneButtonSize);
+	m_levelOneButton.setFillColor(sf::Color(67, 94, 193, 255));
+	m_levelOneButton.setPosition(m_levelOneButtonPosition);
+	//Underline that points to map
+	m_levelOneUnderline.setSize(m_levelOneUnderlineSize);
+	m_levelOneUnderline.setFillColor(sf::Color::White);
+	m_levelOneUnderline.setPosition(m_levelOneUnderlinePosition);
+	//Circle for point
+	m_levelOneCircle.setRadius(25);
+	m_levelOneCircle.setFillColor(sf::Color::Red);
+	m_levelOneCircle.setPosition(m_levelOneCirclePosition);
 
-	if (!m_menuBackgroundTexture.loadFromFile("ASSETS\\IMAGES\\menu_background.png"))
+	//Level buttons Two
+	m_levelTwoButton.setSize(m_levelTwoButtonSize);
+	m_levelTwoButton.setFillColor(sf::Color(67, 94, 193, 255));
+	m_levelTwoButton.setPosition(m_levelTwoButtonPosition);
+	//Underline that points to map
+	m_levelTwoUnderline.setSize(m_levelTwoUnderlineSize);
+	m_levelTwoUnderline.setFillColor(sf::Color::White);
+	m_levelTwoUnderline.setPosition(m_levelTwoUnderlinePosition);
+	//Circle for point
+	m_levelTwoCircle.setRadius(25);
+	m_levelTwoCircle.setFillColor(sf::Color::Red);
+	m_levelTwoCircle.setPosition(m_levelTwoCirclePosition);
+
+
+
+	if (!m_menuBackgroundTexture.loadFromFile("ASSETS\\IMAGES\\Menu\\menu_background.png"))
 	{
-		std::cout << "Problem loading cube file" << std::endl;
+		std::cout << "Problem loading main menu background file" << std::endl;
 	}
 	m_menuBackgroundSprite.setTexture(m_menuBackgroundTexture);
+	if (!m_levelMapTexture.loadFromFile("ASSETS\\IMAGES\\Menu\\levelMap.png"))
+	{
+		std::cout << "Problem loading level map background file" << std::endl;
+	}
+	m_levelMapSprite.setTexture(m_levelMapTexture);
+	//Level Map
+	m_levelMapSprite.setPosition(49, 0);
 }
 
 void menu::render(sf::RenderWindow& t_window) {
@@ -138,8 +205,17 @@ void menu::render(sf::RenderWindow& t_window) {
 	}
 	else {
 		t_window.draw(m_menuBackgroundSprite);
+		t_window.draw(m_levelMapSprite);
 		t_window.draw(m_backButton);
 		t_window.draw(m_backButtonText);
+		t_window.draw(m_levelOneButton);
+		t_window.draw(m_levelOneUnderline);
+		t_window.draw(m_levelOneCircle);
+		t_window.draw(m_levelOneButtonText);
+		t_window.draw(m_levelTwoButton);
+		t_window.draw(m_levelTwoUnderline);
+		t_window.draw(m_levelTwoCircle);
+		t_window.draw(m_levelTwoButtonText);
 	}
 }
 
@@ -168,8 +244,16 @@ void menu::checkIfPressed(sf::Event t_newEvent, sf::RenderWindow &window)
 	}
 	else {
 		sf::FloatRect backButtonZone = m_backButtonHidden.getGlobalBounds();
+		sf::FloatRect levelOneButtonZone = m_levelOneButton.getGlobalBounds();
+		sf::FloatRect levelTwoButtonZone = m_levelTwoButton.getGlobalBounds();
 		if (backButtonZone.contains(m_mouseEnd)) {
 			levelMenu = false;
+		}
+		if (levelOneButtonZone.contains(m_mouseEnd)) {
+			std::cout << "Level One start" << std::endl;
+		}
+		if (levelTwoButtonZone.contains(m_mouseEnd)) {
+			std::cout << "Level Two start" << std::endl;
 		}
 	}
 }
