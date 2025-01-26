@@ -217,19 +217,19 @@ void Game::render()
 		m_window.setView(m_gameView);
 		
 		m_window.draw(m_background);
-		m_window.draw(m_gameText);
-		m_window.draw(player.getBody());
+		//m_window.draw(m_gameText);
+		//m_window.draw(player.getBody());
 		m_window.draw(player.getSprite());
 		for (int i = 0; i < 5; i++)
 		{
 			std::cout << "Index: " << i << " X: " << puff[i].m_position.x << " Y: " << puff[i].m_position.y << std::endl;
-			m_window.draw(puff[i].getBody());
+			//m_window.draw(puff[i].getBody());
 			m_window.draw(puff[i].getSprite());
-			m_window.draw(mite[i].getBody());
+			//m_window.draw(mite[i].getBody());
 			m_window.draw(mite[i].getSprite());
-			m_window.draw(tite[i].getBody());
+			//m_window.draw(tite[i].getBody());
 			m_window.draw(tite[i].getSprite());
-			m_window.draw(geiser[i].getBody());
+			//m_window.draw(geiser[i].getBody());
 			m_window.draw(geiser[i].getSprite());
 			//m_window.draw(geiser[i].getBubble());
 			m_window.draw(geiser[i].getBubbleSprite());
