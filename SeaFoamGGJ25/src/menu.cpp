@@ -4,6 +4,7 @@
 menu::menu() {
 	levelMenu = false;
 	introActive = false;
+	cutscene_index = 0;
 
 	//Intro button	
 	m_introButtonSize = { 260,5 };
@@ -104,6 +105,14 @@ void menu::setupFontAndText() {
 	m_levelTwoButtonText.setPosition(900.0f, 210.0f);
 	m_levelTwoButtonText.setCharacterSize(48U);
 	m_levelTwoButtonText.setFillColor(sf::Color::White);
+
+	m_introCutsceneText.setFont(m_ArialBlackfont);
+	m_introCutsceneText.setString("Test");
+	m_introCutsceneText.setPosition(290.0f, 190.0f);
+	m_introCutsceneText.setCharacterSize(48U);
+	m_introCutsceneText.setFillColor(sf::Color(211,210,213,255));
+	m_introCutsceneText.setOutlineColor(sf::Color::Black);
+	m_introCutsceneText.setOutlineThickness(2);
 
 }
 
@@ -209,6 +218,7 @@ void menu::initialise() {
 void menu::render(sf::RenderWindow& t_window) {
 	if (introActive) {
 		t_window.draw(m_introBackgroundSprite);
+		t_window.draw(m_introCutsceneText);
 	}
 	else if (levelMenu == false) {
 		t_window.draw(m_menuBackgroundSprite);
@@ -248,7 +258,48 @@ void menu::checkIfPressed(sf::Event t_newEvent, sf::RenderWindow &window)
 	if (introActive) {
 		sf::FloatRect introBackgroundZone = m_introBackgroundSprite.getGlobalBounds();
 		if (introBackgroundZone.contains(m_mouseEnd)) {
-			introActive = false;
+			cutscene_index++;
+			switch (cutscene_index) {
+				case 0:
+					m_introCutsceneText.setString("There once was a god\n\nwho was once praised\n\nand worshiped by\n\nthe people.");
+					break;
+				case 1:
+					m_introCutsceneText.setString("They asked for health\n\nand wellness,\n\nand he gave with\n\ntheir sacrifice.");
+					break;
+				case 2:
+					m_introCutsceneText.setString("But he was\n\nan angry god. ");
+					break;
+				case 3:
+					m_introCutsceneText.setString("One day a Sea Witch\n\narrived to the people\n\nbearing knowledge\n\nand potions...\n\n");
+					break;
+				case 4:
+					m_introCutsceneText.setString("...to heal and help\n\nwithout need for\n\npray and sacrifice.");
+					break;
+				case 5:
+					m_introCutsceneText.setString("The god was enraged\n\nat her for what\n\nshe had done");
+					break;
+				case 6:
+					m_introCutsceneText.setString("he said he would\n\ndrown the people\n\nfor their disloyalty.  ");
+					break;
+				case 7:
+					m_introCutsceneText.setString("The god punished\n\nthe Sea Witch for\n\nwhat she had done");
+					break;
+				case 8:
+					m_introCutsceneText.setString("Casting her down\n\nto drown in\n\nthe sea caves.");
+					break;
+				case 9:
+					m_introCutsceneText.setString("When the waters rose,\n\nshe used her last energy\n\nto create a\n\nBubble Familiar...");
+					break;
+				case 10:
+					m_introCutsceneText.setString("...to transport a rune\n\nthat would create\n\na safety bubble of\n\nprotection from the god. ");
+					break;
+				case 11:
+					m_introCutsceneText.setString("You can do this,\n\nsave them!");
+					break;
+				default:
+					introActive = false;
+					break;
+			}
 		}
 	}
 	else if (levelMenu == false){
@@ -258,6 +309,8 @@ void menu::checkIfPressed(sf::Event t_newEvent, sf::RenderWindow &window)
 
 		if (introButtonZone.contains(m_mouseEnd)) {
 			introActive = true;
+			cutscene_index = 0;
+			m_introCutsceneText.setString("There once was a god\n\nwho was once praised\n\nand worshiped by\n\nthe people.");
 		}
 		if (levelsButtonZone.contains(m_mouseEnd)) {
 			levelMenu = true;

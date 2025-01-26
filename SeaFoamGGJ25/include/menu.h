@@ -64,6 +64,9 @@ class menu {
 
 	bool introActive;
 
+	sf::Text m_introCutsceneText;
+	int cutscene_index;
+
 	sf::Text m_backButtonText;
 
 	//Back button	
