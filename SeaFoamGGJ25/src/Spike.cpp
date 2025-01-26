@@ -30,3 +30,10 @@ void Spike::setupSprite(sf::Texture& t_texture)
 	m_sprite.setPosition(m_position + m_spriteOffset);
 	m_sprite.setScale(0.25f, 0.2f);
 }
+
+void Spike::setPosition(sf::Vector2f t_pos)
+{
+	m_position = t_pos;
+	m_body.setPosition(m_position);
+	m_sprite.setPosition(m_position + m_spriteOffset);
+}

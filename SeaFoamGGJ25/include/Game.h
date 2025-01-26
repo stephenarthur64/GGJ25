@@ -44,6 +44,8 @@ private:
 	void updateCamera();
 	void updateText();
 	void resetGame();
+	void levelOne();
+	void resetCamera();
 	
 	void setupFontAndText();
 	void setupSprite();

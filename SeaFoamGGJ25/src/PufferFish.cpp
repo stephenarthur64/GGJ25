@@ -44,22 +44,11 @@ void PufferFish::move()
 
 void PufferFish::setupSprite(sf::Texture& t_puff, sf::Texture &t_eel)
 {
-	if (m_direction == 0)
-	{
-		m_sprite.setTexture(t_puff);
-		m_sprite.setScale(0.3f, 0.3f);
-		m_sprite.setOrigin(590.0f, 820.0f);
-		m_sprite.setTextureRect(sf::IntRect(340, 450, 559, 635));
-		m_sprite.setPosition(m_position + m_spriteOffset);
-	}
-
-	if (m_direction == 1)
-	{
-		m_sprite.setTexture(t_eel);
-		//m_sprite.setScale(0.3f, 0.3f);
-		//m_sprite.setOrigin(590.0f, 820.0f);
-		m_sprite.setPosition(m_position + m_spriteOffset);
-	}
+	m_sprite.setTexture(t_puff);
+	m_sprite.setScale(0.3f, 0.3f);
+	m_sprite.setOrigin(590.0f, 820.0f);
+	m_sprite.setTextureRect(sf::IntRect(340, 450, 559, 635));
+	m_sprite.setPosition(m_position + m_spriteOffset);
 }
 
 void PufferFish::setupPosition(sf::Vector2f t_upper, sf::Vector2f t_lower, sf::Vector2f t_pos, int t_direction)

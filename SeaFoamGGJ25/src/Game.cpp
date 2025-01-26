@@ -22,6 +22,7 @@ Game::Game() :
 	setupFontAndText(); // load font 
 	setupSprite(); // load texture
 	m_menu.initialise();
+	levelOne();
 }
 
 /// <summary>
@@ -184,6 +185,12 @@ void Game::entityUpdate(sf::Time t_deltaTime)
 	}
 
 	m_geiserFrames++;
+
+	if (player.getPosition().x >= 1000)
+	{
+		m_state = GameState::MENU;
+		resetCamera();
+	}
 }
 
 void Game::menuUpdate()
@@ -218,7 +225,7 @@ void Game::render()
 			m_window.draw(mite[i].getSprite());
 			m_window.draw(tite[i].getBody());
 			m_window.draw(tite[i].getSprite());
-			//m_window.draw(geiser[i].getBody());
+			m_window.draw(geiser[i].getBody());
 			m_window.draw(geiser[i].getSprite());
 			//m_window.draw(geiser[i].getBubble());
 			m_window.draw(geiser[i].getBubbleSprite());
@@ -296,6 +303,38 @@ void Game::resetGame()
 	puff[4].m_position = sf::Vector2f(300.0f, 500.0f);*/ 
 }
 
+void Game::levelOne()
+{
+	puff[0].setupPosition(sf::Vector2f(600.0f, 600.0f), sf::Vector2f(200.0f, 100.0f), sf::Vector2f(300.0f, 300.0f), 1);
+	mite[0].setPosition({ 500.0f, 450.0f });
+	tite[0].setPosition({ 600.0f, 250.0f });
+	geiser[0].setPosition({ 800.0f, 500.0f });
+	mite[1].setPosition({ 1000.0f, 450.0f });
+	tite[1].setPosition({ 1100.0f, 250.0f });
+	mite[2].setPosition({ 1200.0f, 450.0f });
+	puff[1].setupPosition(sf::Vector2f(1600.0f, 0.0f), sf::Vector2f(1200.0f, 600.0f), sf::Vector2f(300.0f, 300.0f), 0);
+	tite[2].setPosition({ 1600.0f, 0.0f });
+
+	tite[2].setPosition({ 1600000.0f, 0.0f });
+	tite[3].setPosition({ 1600000.0f, 0.0f });
+	tite[4].setPosition({ 1600000.0f, 0.0f });
+	mite[3].setPosition({ 1600000.0f, 0.0f });
+	mite[4].setPosition({ 1600000.0f, 0.0f });
+	puff[2].setupPosition(sf::Vector2f(1600.0f, 0.0f), sf::Vector2f(1200.0f, 600.0f), sf::Vector2f(1111300.0f, 300.0f), 0);
+	puff[3].setupPosition(sf::Vector2f(1600.0f, 0.0f), sf::Vector2f(1200.0f, 600.0f), sf::Vector2f(1111300.0f, 300.0f), 0);
+	puff[4].setupPosition(sf::Vector2f(1600.0f, 0.0f), sf::Vector2f(1200.0f, 600.0f), sf::Vector2f(1111300.0f, 300.0f), 0);
+	geiser[1].setPosition({ 999800.0f, 600.0f });
+	geiser[2].setPosition({ 999800.0f, 600.0f });
+	geiser[3].setPosition({ 999800.0f, 600.0f });
+	geiser[4].setPosition({ 999800.0f, 600.0f });
+}
+
+void Game::resetCamera()
+{
+	player.setPosition({ 0.0f, 0.0f });
+	updateCamera();
+}
+
 /// <summary>
 /// load the font and setup the text message for screen
 /// </summary>
@@ -336,11 +375,11 @@ void Game::setupSprite()
 		tite[i].setupBody(1, sf::Vector2f(800.0f, 300.0f), sf::Vector2f(50.0f, 300.0f));
 	}
 
-	geiser[0].setupBody(sf::Vector2f(200.0f, 500.0f));
-	geiser[1].setupBody(sf::Vector2f(300.0f, 500.0f));
-	geiser[2].setupBody(sf::Vector2f(400.0f, 500.0f));
-	geiser[3].setupBody(sf::Vector2f(500.0f, 500.0f));
-	geiser[4].setupBody(sf::Vector2f(600.0f, 500.0f));
+	geiser[0].setupBody(sf::Vector2f(11111, 500.0f));
+	geiser[1].setupBody(sf::Vector2f(111300.0f, 500.0f));
+	geiser[2].setupBody(sf::Vector2f(411100.0f, 500.0f));
+	geiser[3].setupBody(sf::Vector2f(5111100.0f, 500.0f));
+	geiser[4].setupBody(sf::Vector2f(61100.0f, 500.0f));
 
 	
 	borderTop.setupBody(0);

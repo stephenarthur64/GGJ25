@@ -22,6 +22,13 @@ void Geiser::setupSprite(sf::Texture& t_gesier, sf::Texture& t_bubble)
 	bubble.setupSprite(t_bubble);
 }
 
+void Geiser::setPosition(sf::Vector2f t_pos)
+{
+	m_position = t_pos;
+	m_body.setPosition(m_position);
+	m_sprite.setPosition(m_position + m_spriteOffset);
+}
+
 sf::Sprite Geiser::getBubbleSprite()
 {
 	return bubble.getSprite();

@@ -8,6 +8,7 @@ class Geiser :
 public:
     void setupBody(sf::Vector2f t_pos);
     void setupSprite(sf::Texture& t_gesier, sf::Texture& t_bubble);
+    void setPosition(sf::Vector2f t_pos);
 
     sf::Sprite getBubbleSprite();
     sf::CircleShape getBubble();
