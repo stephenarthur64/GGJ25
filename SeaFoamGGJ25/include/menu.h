@@ -14,6 +14,10 @@ class menu {
 	sf::Sprite m_menuBackgroundSprite;
 	sf::Texture m_menuBackgroundTexture;
 
+	//Sprites and textures
+	sf::Sprite m_levelMapSprite;
+	sf::Texture m_levelMapTexture;
+
 	//Location of where you clicked
 	sf::Vector2f m_mouseEnd;
 
@@ -61,6 +65,36 @@ class menu {
 	sf::RectangleShape m_backButtonHidden;
 	sf::Vector2f m_backButtonHiddenSize;
 	sf::Vector2f m_backButtonHiddenPosition;
+
+	//Level screen level buttons
+	//Level One button
+	sf::Text m_levelOneButtonText;
+	sf::Text m_levelTwoButtonText;
+	//Clickable area
+	sf::RectangleShape m_levelOneButton;
+	sf::Vector2f m_levelOneButtonSize;
+	sf::Vector2f m_levelOneButtonPosition;
+	//Underline that points to map
+	sf::RectangleShape m_levelOneUnderline;
+	sf::Vector2f m_levelOneUnderlineSize;
+	sf::Vector2f m_levelOneUnderlinePosition;
+	//Circle for point
+	sf::CircleShape m_levelOneCircle;
+	sf::Vector2f m_levelOneCirclePosition;
+
+	//Level Two button
+	//Clickable area
+	sf::RectangleShape m_levelTwoButton;
+	sf::Vector2f m_levelTwoButtonSize;
+	sf::Vector2f m_levelTwoButtonPosition;
+	//Underline that points to map
+	sf::RectangleShape m_levelTwoUnderline;
+	sf::Vector2f m_levelTwoUnderlineSize;
+	sf::Vector2f m_levelTwoUnderlinePosition;
+	//Circle for point
+	sf::CircleShape m_levelTwoCircle;
+	sf::Vector2f m_levelTwoCirclePosition;
+
 
 public:
 	//Constructor
