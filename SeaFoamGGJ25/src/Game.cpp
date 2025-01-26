@@ -16,7 +16,8 @@ Game::Game() :
 	m_window{ sf::VideoMode{ SCREEN_WIDTH, SCREEN_HEIGHT, 32U }, "SFML Game" },
 	m_exitGame{false}, //when true game will exit
 	m_gameView(sf::FloatRect({ 0.0f, 0.0f}, {(float)SCREEN_WIDTH, (float)SCREEN_HEIGHT})),
-	m_guiView(sf::FloatRect({ 0.0f, 0.0f }, { (float)SCREEN_WIDTH, (float)SCREEN_HEIGHT }))
+	m_guiView(sf::FloatRect({ 0.0f, 0.0f }, { (float)SCREEN_WIDTH, (float)SCREEN_HEIGHT })),
+	m_menuView(sf::FloatRect({ 0.0f, 0.0f }, { (float)SCREEN_WIDTH, (float)SCREEN_HEIGHT }))
 {
 	resetGame();
 	setupFontAndText(); // load font 
@@ -188,8 +189,8 @@ void Game::entityUpdate(sf::Time t_deltaTime)
 
 	if (player.getPosition().x >= 1000)
 	{
-		m_state = GameState::MENU;
 		resetCamera();
+		m_state = GameState::MENU;
 	}
 }
 
@@ -202,7 +203,7 @@ void Game::menuUpdate()
 /// </summary>
 void Game::render()
 {
-	m_window.setView(m_gameView);
+	m_window.setView(m_menuView);
 	m_window.clear(sf::Color::White);
 	if (m_state == GameState::MENU)
 	{
@@ -210,7 +211,7 @@ void Game::render()
 	}
 	if (m_state == GameState::GAMEPLAY)
 	{
-
+		m_window.setView(m_gameView);
 		
 		m_window.draw(m_background);
 		m_window.draw(m_gameText);
@@ -332,7 +333,7 @@ void Game::levelOne()
 void Game::resetCamera()
 {
 	player.setPosition({ 0.0f, 0.0f });
-	updateCamera();
+	m_window.setView(m_menuView);
 }
 
 /// <summary>

@@ -57,10 +57,11 @@ private:
 	sf::RenderWindow m_window; // main SFML window
 	sf::View m_gameView; // View for the game
 	sf::View m_guiView; // View for gui
+	sf::View m_menuView;
 	sf::Font m_ArialBlackfont; // font used by message	sf::Text m_menuText; // Text used to denote the Menu
 	sf::Text m_healthText;
 	sf::Text m_gameText; // Text used to denote the Game
-	GameState m_state = GameState::GAMEPLAY;
+	GameState m_state = GameState::MENU;
 	Player player;
 	PufferFish puff[5];
 	Spike mite[5];
