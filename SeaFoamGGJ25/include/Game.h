@@ -18,6 +18,7 @@
 #include "Geiser.h"
 #include "Collision.h"
 #include "ScreenBorder.h"
+#include "Music.h"
 
 enum class GameState { MENU, GAMEPLAY, CUTSCENE_START, CUTSCENE_END };
 
@@ -76,6 +77,9 @@ private:
 	bool m_exitGame; // control exiting game
 
 	menu m_menu;
+
+	audio m_audio;
+
 };
 
 #endif // !GAME_HPP

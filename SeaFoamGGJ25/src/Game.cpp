@@ -21,6 +21,9 @@ Game::Game() :
 	setupFontAndText(); // load font 
 	setupSprite(); // load texture
 	m_menu.initialise();
+
+	m_audio.loadFiles();
+	m_audio.playMenuTheme();
 }
 
 /// <summary>
