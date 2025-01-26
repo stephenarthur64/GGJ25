@@ -6,22 +6,22 @@ menu::menu() {
 
 	//Intro button	
 	m_introButtonSize = { 260,5 };
-	m_introButtonPosition = { 972,490 };
+	m_introButtonPosition = { 525,505 };
 	//Intro button Hidden
 	m_introButtonHiddenSize = { 260,60 };
-	m_introButtonHiddenPosition = { 972,430 };
+	m_introButtonHiddenPosition = { 525,445 };
 	//Levels button	
 	m_levelsButtonSize = { 260,5 };
-	m_levelsButtonPosition = { 972,575 };
+	m_levelsButtonPosition = { 525,595 };
 	//Levels button	Hidden
 	m_levelsButtonHiddenSize = { 260,60 };
-	m_levelsButtonHiddenPosition = { 972,525 };
+	m_levelsButtonHiddenPosition = { 525,555 };
 	//Quit button	
 	m_quitButtonSize = { 260,5 };
-	m_quitButtonPosition = { 972,665 };
+	m_quitButtonPosition = { 525,685 };
 	//Quit button Hidden
 	m_quitButtonHiddenSize = { 260,60 };
-	m_quitButtonHiddenPosition = { 972,615 };
+	m_quitButtonHiddenPosition = { 525,645 };
 
 	//Background opaic
 	m_backgroundOpaicSize = { 800, 720 };
@@ -58,7 +58,7 @@ menu::menu() {
 }
 
 void menu::setupFontAndText() {
-	if (!m_ArialBlackfont.loadFromFile("ASSETS\\FONTS\\ariblk.ttf"))
+	if (!m_ArialBlackfont.loadFromFile("ASSETS\\FONTS\\Bubble3D.ttf"))
 	{
 		std::cout << "problem loading arial black font" << std::endl;
 	}
@@ -70,26 +70,26 @@ void menu::setupFontAndText() {
 
 	m_introButtonText.setFont(m_ArialBlackfont);
 	m_introButtonText.setString("Intro");
-	m_introButtonText.setPosition(1067.0f, 445.0f);
-	m_introButtonText.setCharacterSize(28U);
+	m_introButtonText.setPosition(576.0f, 445.0f);
+	m_introButtonText.setCharacterSize(50U);
 	m_introButtonText.setFillColor(sf::Color::White);
 
 	m_levelsButtonText.setFont(m_ArialBlackfont);
 	m_levelsButtonText.setString("Levels");
-	m_levelsButtonText.setPosition(1058.0f, 535.0f);
-	m_levelsButtonText.setCharacterSize(28U);
+	m_levelsButtonText.setPosition(566.0f, 535.0f);
+	m_levelsButtonText.setCharacterSize(50U);
 	m_levelsButtonText.setFillColor(sf::Color::White);
 
 	m_quitButtonText.setFont(m_ArialBlackfont);
 	m_quitButtonText.setString("Quit");
-	m_quitButtonText.setPosition(1067.0f, 625.0f);
-	m_quitButtonText.setCharacterSize(28U);
+	m_quitButtonText.setPosition(586.0f, 625.0f);
+	m_quitButtonText.setCharacterSize(50U);
 	m_quitButtonText.setFillColor(sf::Color::White);
 
 	m_backButtonText.setFont(m_ArialBlackfont);
 	m_backButtonText.setString("Back");
-	m_backButtonText.setPosition(1067.0f, 625.0f);
-	m_backButtonText.setCharacterSize(28U);
+	m_backButtonText.setPosition(1037.0f, 605.0f);
+	m_backButtonText.setCharacterSize(50U);
 	m_backButtonText.setFillColor(sf::Color::White);
 
 	m_levelOneButtonText.setFont(m_ArialBlackfont);
@@ -194,15 +194,15 @@ void menu::initialise() {
 		std::cout << "Problem loading game logo file" << std::endl;
 	}
 	m_gameLogoSprite.setTexture(m_gameLogoTexture);
-	//m_gameLogoSprite.setPosition(600, -80);
-	m_gameLogoSprite.setPosition(-40, 340);
+	m_gameLogoSprite.setPosition(300, -80);
+	//m_gameLogoSprite.setPosition(-40, 340);
 	m_gameLogoSprite.setScale(0.9f, 0.9f);
 }
 
 void menu::render(sf::RenderWindow& t_window) {
 	if (levelMenu == false) {
 		t_window.draw(m_menuBackgroundSprite);
-		t_window.draw(m_backgroundOpaic);
+		//t_window.draw(m_backgroundOpaic);
 		t_window.draw(m_gameLogoSprite);
 		t_window.draw(m_introButton);
 		t_window.draw(m_levelsButton);
