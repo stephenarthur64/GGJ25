@@ -101,7 +101,7 @@ void menu::setupFontAndText() {
 	m_levelOneButtonText.setFillColor(sf::Color::White);
 
 	m_levelTwoButtonText.setFont(m_ArialBlackfont);
-	m_levelTwoButtonText.setString("Level Two");
+	m_levelTwoButtonText.setString("Level Two\n\nPress Space");
 	m_levelTwoButtonText.setPosition(900.0f, 210.0f);
 	m_levelTwoButtonText.setCharacterSize(48U);
 	m_levelTwoButtonText.setFillColor(sf::Color::White);
