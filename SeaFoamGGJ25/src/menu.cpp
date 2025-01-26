@@ -25,7 +25,7 @@ menu::menu() {
 
 	//Background opaic
 	m_backgroundOpaicSize = { 800, 720 };
-	m_backgroundOpaicPosition = { 500, 0 };
+	m_backgroundOpaicPosition = { 900, 0 };
 
 	//Level Screen
 	//Back button	
@@ -187,18 +187,26 @@ void menu::initialise() {
 		std::cout << "Problem loading level map background file" << std::endl;
 	}
 	m_levelMapSprite.setTexture(m_levelMapTexture);
-	//Level Map
 	m_levelMapSprite.setPosition(49, 0);
+	//Logo
+	if (!m_gameLogoTexture.loadFromFile("ASSETS\\IMAGES\\Menu\\game_logo.png"))
+	{
+		std::cout << "Problem loading game logo file" << std::endl;
+	}
+	m_gameLogoSprite.setTexture(m_gameLogoTexture);
+	//m_gameLogoSprite.setPosition(600, -80);
+	m_gameLogoSprite.setPosition(-40, 340);
+	m_gameLogoSprite.setScale(0.9f, 0.9f);
 }
 
 void menu::render(sf::RenderWindow& t_window) {
 	if (levelMenu == false) {
 		t_window.draw(m_menuBackgroundSprite);
 		t_window.draw(m_backgroundOpaic);
+		t_window.draw(m_gameLogoSprite);
 		t_window.draw(m_introButton);
 		t_window.draw(m_levelsButton);
 		t_window.draw(m_quitButton);
-		t_window.draw(m_menuText);
 		t_window.draw(m_introButtonText);
 		t_window.draw(m_levelsButtonText);
 		t_window.draw(m_quitButtonText);

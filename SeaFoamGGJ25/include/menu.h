@@ -14,6 +14,9 @@ class menu {
 	sf::Sprite m_menuBackgroundSprite;
 	sf::Texture m_menuBackgroundTexture;
 
+	sf::Sprite m_gameLogoSprite;
+	sf::Texture m_gameLogoTexture;
+
 	//Sprites and textures
 	sf::Sprite m_levelMapSprite;
 	sf::Texture m_levelMapTexture;
