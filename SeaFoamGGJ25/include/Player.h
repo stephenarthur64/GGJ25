@@ -5,6 +5,7 @@ class Player :
 {
 public:
 	Player();
+	void setupSprite(sf::Texture& t_texture);
 	void floatUp();
 	void movementStop();
 	void damaged(int t_damage);
@@ -15,8 +16,11 @@ public:
 	bool isDead();
 
 	int getHealth();
+	
 
 private:
+	
+
 	sf::Vector2f m_floatVelocity;
 	int m_health;
 	const int MAX_HEALTH = 3;

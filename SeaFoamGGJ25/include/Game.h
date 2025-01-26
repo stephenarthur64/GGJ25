@@ -62,11 +62,12 @@ private:
 	Spike mite[5];
 	Spike tite[5];
 	Geiser geiser[5];
+	sf::Sprite m_background;
+	sf::Texture m_backgroundTexture;
 	sf::Texture m_playerTexture;
 	sf::Texture m_puffTexture;
 	sf::Texture m_spikeTexture;
 	sf::Texture m_geiserTexture;
-	sf::Sprite m_playerSprite;
 	sf::Sprite m_puffSprite[5];
 	sf::Sprite m_miteSprite[5];
 	sf::Sprite m_titeSprite[5];

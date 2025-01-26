@@ -192,11 +192,14 @@ void Game::render()
 	}
 	if (m_state == GameState::GAMEPLAY)
 	{
+		m_window.draw(m_background);
 		m_window.draw(m_gameText);
 		m_window.draw(player.getBody());
+		m_window.draw(player.getSprite());
 		for (int i = 0; i < 5; i++)
 		{
 			m_window.draw(puff[i].getBody());
+			m_window.draw(puff[i].getSprite());
 			m_window.draw(mite[i].getBody());
 			m_window.draw(tite[i].getBody());
 			m_window.draw(geiser[i].getBody());
@@ -305,4 +308,24 @@ void Game::setupSprite()
 	
 	borderTop.setupBody(0);
 	borderBottom.setupBody(1);
+
+	if (m_backgroundTexture.loadFromFile("ASSETS/IMAGES/Environment/background.png"))
+	{
+		m_background.setTexture(m_backgroundTexture);
+		m_background.setScale(0.5f, 0.5f);
+	}
+
+	if (m_playerTexture.loadFromFile("ASSETS/IMAGES/Player/Bubble 6.png"));
+	{
+		player.setupSprite(m_playerTexture);
+	}
+
+	if (m_puffTexture.loadFromFile("ASSETS/IMAGES/Enemies/Spike puffer 1.png"))
+	{
+		for (int i = 0; i < 5; i++)
+		{
+			puff[i].setupSprite(m_puffTexture);
+		}
+	}
+	
 }
