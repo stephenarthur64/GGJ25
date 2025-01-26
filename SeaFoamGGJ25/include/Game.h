@@ -68,6 +68,7 @@ private:
 	sf::Texture m_backgroundTexture;
 	sf::Texture m_playerTexture;
 	sf::Texture m_puffTexture;
+	sf::Texture m_eelTexture;
 	sf::Texture m_spikeTexture;
 	sf::Texture m_geiserTexture;
 	sf::Texture m_bubbleTexture;

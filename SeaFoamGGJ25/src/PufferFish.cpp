@@ -1,8 +1,7 @@
 #include "PufferFish.h"
 
-PufferFish::PufferFish(sf::Vector2f t_upper, sf::Vector2f t_lower, float t_speed, int t_direction) : m_upperLimit(t_upper), m_lowerLimit(t_lower), m_speed(t_speed), m_direction(t_direction)
+PufferFish::PufferFish(float t_speed) : m_speed(t_speed)
 {
-	m_position = sf::Vector2f(300.0f, 200.0f);
 	m_spriteOffset = sf::Vector2f(130.0f, 180.0f);
 }
 
@@ -43,11 +42,30 @@ void PufferFish::move()
 	m_sprite.setPosition(m_position + m_spriteOffset);
 }
 
-void PufferFish::setupSprite(sf::Texture& t_texture)
+void PufferFish::setupSprite(sf::Texture& t_puff, sf::Texture &t_eel)
 {
-	m_sprite.setTexture(t_texture);
-	m_sprite.setScale(0.3f, 0.3f);
-	m_sprite.setOrigin(590.0f, 820.0f);
-	m_sprite.setTextureRect(sf::IntRect(340 , 450, 559, 635));
-	m_sprite.setPosition(m_position + m_spriteOffset);
+	if (m_direction == 0)
+	{
+		m_sprite.setTexture(t_puff);
+		m_sprite.setScale(0.3f, 0.3f);
+		m_sprite.setOrigin(590.0f, 820.0f);
+		m_sprite.setTextureRect(sf::IntRect(340, 450, 559, 635));
+		m_sprite.setPosition(m_position + m_spriteOffset);
+	}
+
+	if (m_direction == 1)
+	{
+		m_sprite.setTexture(t_eel);
+		//m_sprite.setScale(0.3f, 0.3f);
+		//m_sprite.setOrigin(590.0f, 820.0f);
+		m_sprite.setPosition(m_position + m_spriteOffset);
+	}
+}
+
+void PufferFish::setupPosition(sf::Vector2f t_upper, sf::Vector2f t_lower, sf::Vector2f t_pos, int t_direction)
+{
+	m_upperLimit = t_upper;
+	m_lowerLimit = t_lower;
+	m_direction = t_direction;
+	m_position = t_pos;
 }

@@ -12,12 +12,12 @@ public:
 	void move(sf::Vector2f t_direction);
 	void updatePosition();
 
-
+	sf::Vector2f m_position;
 protected:
 	sf::RectangleShape m_body;
 	sf::Sprite m_sprite;
 	sf::Color m_colour;
-	sf::Vector2f m_position;
+	
 	sf::Vector2f m_velocity;
 	sf::Vector2f m_spriteOffset;
 };

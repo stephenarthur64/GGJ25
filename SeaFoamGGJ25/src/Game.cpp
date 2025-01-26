@@ -18,6 +18,7 @@ Game::Game() :
 	m_gameView(sf::FloatRect({ 0.0f, 0.0f}, {(float)SCREEN_WIDTH, (float)SCREEN_HEIGHT})),
 	m_guiView(sf::FloatRect({ 0.0f, 0.0f }, { (float)SCREEN_WIDTH, (float)SCREEN_HEIGHT }))
 {
+	resetGame();
 	setupFontAndText(); // load font 
 	setupSprite(); // load texture
 	m_menu.initialise();
@@ -176,7 +177,10 @@ void Game::entityUpdate(sf::Time t_deltaTime)
 	if (m_geiserFrames >= 300)
 	{
 		m_geiserFrames = 0;
-		geiser->enableBubble();
+		for (int i = 0; i < 5; i++)
+		{
+			geiser[i].enableBubble();
+		}
 	}
 
 	m_geiserFrames++;
@@ -199,23 +203,28 @@ void Game::render()
 	}
 	if (m_state == GameState::GAMEPLAY)
 	{
+
+		
 		m_window.draw(m_background);
 		m_window.draw(m_gameText);
 		m_window.draw(player.getBody());
 		m_window.draw(player.getSprite());
 		for (int i = 0; i < 5; i++)
 		{
+			std::cout << "Index: " << i << " X: " << puff[i].m_position.x << " Y: " << puff[i].m_position.y << std::endl;
 			m_window.draw(puff[i].getBody());
 			m_window.draw(puff[i].getSprite());
 			m_window.draw(mite[i].getBody());
 			m_window.draw(mite[i].getSprite());
 			m_window.draw(tite[i].getBody());
 			m_window.draw(tite[i].getSprite());
-			m_window.draw(geiser[i].getBody());
+			//m_window.draw(geiser[i].getBody());
 			m_window.draw(geiser[i].getSprite());
 			//m_window.draw(geiser[i].getBubble());
 			m_window.draw(geiser[i].getBubbleSprite());
 		}
+		m_window.draw(puff[2].getBody());
+
 		m_window.draw(borderTop.getBody());
 		m_window.draw(borderBottom.getBody());
 		m_window.setView(m_guiView); // All GUI drawn after this point <-------------
@@ -274,6 +283,17 @@ void Game::updateText()
 
 void Game::resetGame()
 {
+	puff[0].setupPosition(sf::Vector2f(600.0f, 600.0f), sf::Vector2f(200.0f, 100.0f), sf::Vector2f(300.0f, 300.0f), 1);
+	puff[1].setupPosition(sf::Vector2f(600.0f, 600.0f), sf::Vector2f(200.0f, 100.0f), sf::Vector2f(500.0f, 300.0f), 1);
+	puff[2].setupPosition(sf::Vector2f(600.0f, 600.0f), sf::Vector2f(200.0f, 100.0f), sf::Vector2f(600.0f, 200.0f), 1);
+	puff[3].setupPosition(sf::Vector2f(600.0f, 600.0f), sf::Vector2f(200.0f, 100.0f), sf::Vector2f(300.0f, 600.0f), 1);
+	puff[4].setupPosition(sf::Vector2f(600.0f, 600.0f), sf::Vector2f(200.0f, 100.0f), sf::Vector2f(300.0f, 500.0f), 1);
+
+/*	puff[0].m_position = sf::Vector2f(300.0f, 300.0f);
+	puff[1].m_position = sf::Vector2f(300.0f, 600.0f);
+	puff[2].m_position = sf::Vector2f(500.0f, 300.0f);
+	puff[3].m_position = sf::Vector2f(300.0f, 600.0f);
+	puff[4].m_position = sf::Vector2f(300.0f, 500.0f);*/ 
 }
 
 /// <summary>
@@ -314,8 +334,14 @@ void Game::setupSprite()
 		puff[i].setupBody(sf::Color::Red);
 		mite[i].setupBody(0, sf::Vector2f(600.0f, 420.0f), sf::Vector2f(50.0f, 300.0f));
 		tite[i].setupBody(1, sf::Vector2f(800.0f, 300.0f), sf::Vector2f(50.0f, 300.0f));
-		geiser[i].setupBody(sf::Vector2f(300.0f, 600.0f));
 	}
+
+	geiser[0].setupBody(sf::Vector2f(200.0f, 500.0f));
+	geiser[1].setupBody(sf::Vector2f(300.0f, 500.0f));
+	geiser[2].setupBody(sf::Vector2f(400.0f, 500.0f));
+	geiser[3].setupBody(sf::Vector2f(500.0f, 500.0f));
+	geiser[4].setupBody(sf::Vector2f(600.0f, 500.0f));
+
 	
 	borderTop.setupBody(0);
 	borderBottom.setupBody(1);
@@ -331,11 +357,11 @@ void Game::setupSprite()
 		player.setupSprite(m_playerTexture);
 	}
 
-	if (m_puffTexture.loadFromFile("ASSETS/IMAGES/Enemies/Spike puffer 1.png"))
+	if (m_puffTexture.loadFromFile("ASSETS/IMAGES/Enemies/Spike puffer 1.png") && m_eelTexture.loadFromFile("ASSETS/IMAGES/Enemies/Eel.png"))
 	{
 		for (int i = 0; i < 5; i++)
 		{
-			puff[i].setupSprite(m_puffTexture);
+			puff[i].setupSprite(m_puffTexture, m_eelTexture);
 		}
 	}
 	

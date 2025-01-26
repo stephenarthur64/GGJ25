@@ -1,2 +1,8 @@
-﻿  Bubble.cpp
+﻿  Game.cpp
+C:\Users\gamejam\Desktop\GGJ25\SeaFoamGGJ25\SeaFoamGGJ25\src\Game.cpp(168,34): warning C4100: 't_deltaTime': unreferenced formal parameter
+C:\Users\gamejam\Desktop\GGJ25\SeaFoamGGJ25\SeaFoamGGJ25\src\Game.cpp(275,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\gamejam\Desktop\GGJ25\SeaFoamGGJ25\SeaFoamGGJ25\src\Game.cpp(355,72): warning C4390: ';': empty controlled statement found; is this the intent?
+  PufferFish.cpp
+  main.cpp
+  Generating Code...
   SeaFoamGGJ25.vcxproj -> C:\Users\gamejam\Desktop\GGJ25\SeaFoamGGJ25\Debug\SeaFoamGGJ25.exe

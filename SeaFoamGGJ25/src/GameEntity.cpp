@@ -1,4 +1,5 @@
 #include "GameEntity.h"
+#include <iostream>
 
 GameEntity::GameEntity() : m_velocity(sf::Vector2f(0.0f, 0.0f)), m_position(sf::Vector2f(40.0f, 300.0f)), m_spriteOffset(sf::Vector2f(0.0f, 0.0f))
 {
@@ -23,6 +24,7 @@ sf::FloatRect GameEntity::getBounds()
 
 sf::Sprite GameEntity::getSprite()
 {
+	std::cout << m_position.x << "\n";
 	return m_sprite;
 }
 
