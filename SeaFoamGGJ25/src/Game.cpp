@@ -201,7 +201,9 @@ void Game::render()
 			m_window.draw(puff[i].getBody());
 			m_window.draw(puff[i].getSprite());
 			m_window.draw(mite[i].getBody());
+			m_window.draw(mite[i].getSprite());
 			m_window.draw(tite[i].getBody());
+			m_window.draw(tite[i].getSprite());
 			m_window.draw(geiser[i].getBody());
 			m_window.draw(geiser[i].getBubble());
 		}
@@ -328,4 +330,13 @@ void Game::setupSprite()
 		}
 	}
 	
+	if (m_spikeTexture.loadFromFile("ASSETS/IMAGES/Environment/stalactite.png"))
+	{
+		for (int i = 0; i < 5; i++)
+		{
+			mite[i].setupSprite(m_spikeTexture);
+			tite[i].setupSprite(m_spikeTexture);
+		}
+	}
+
 }
